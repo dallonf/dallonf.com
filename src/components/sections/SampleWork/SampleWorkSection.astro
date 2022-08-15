@@ -1,19 +1,28 @@
+---
+import volusionImg from './volusion.jpg';
+import cmeImg from './cme.jpg';
+import teamFinderImg from './teamfinder.jpg';
+---
+
 <section>
   <h2>Sample Work</h2>
-  <ul>
+  <ul class="sample-work-list">
     <li>
+      <img src={volusionImg} width="350" height="350" alt="A screenshot of a Volusion store." />
       <h3>Volusion's Page Builder</h3>
       <p>
         Improved performance, maintainability, and test coverage by gradually implementing a structured cache system.
       </p>
     </li>
     <li>
+      <img src={cmeImg} width="350" height="350" alt="A screenshot of Phunware's Content Management Engine portal." />
       <h3>Phunware's Content Management Engine</h3>
       <p>
         Led architecture of a UI revamp, reverse engineering the data model of a legacy product.
       </p>
     </li>
     <li>
+      <img src={teamFinderImg} width="350" height="350" alt="A screenshot of the GMTK Game Jam 2022 Team Finder." />
       <h3>GMTK Game Jam Team Finder</h3>
       <p>
         Led UI architecture for an open source project with a volunteer team.
@@ -29,13 +38,45 @@
     background-color: var(--color-bg-dark);
     color: var(--color-text-light);
     min-height: var(--section-height);
+    padding: var(--size-fluid-5) var(--size-fluid-1);
+    text-align: center;
   }
 
   h2 {
     font-family: var(--accent-font);
     font-weight: bold;
-    font-size: var(--font-size-5);
-    text-align: center;
-    padding: var(--size-fluid-5) 0;
+    font-size: var(--font-size-fluid-2);
+  }
+
+  .sample-work-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sample-work-list>li {
+    font-size: var(--font-size-fluid-0);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--size-fluid-4);
+    max-inline-size: var(--size-header-3);
+  }
+
+  .sample-work-list>li>img {
+    width: var(--size-header-1);
+  }
+
+  .sample-work-list>li h3 {
+    margin-top: var(--size-fluid-1);
+    font-family: var(--accent-font);
+    font-weight: bold;
+  }
+
+  .sample-work-list>li p {
+    margin-top: var(--size-fluid-1);
+  }
+
+  a,
+  a:visited {
+    color: var(--color-text-light);
   }
 </style>
