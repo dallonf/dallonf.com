@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "astro": "^1.0.5"
+    "astro": "^1.0.5",
+    "postcss-custom-media": "^8.0.2"
   },
   "dependencies": {
     "@fontsource/clear-sans": "^4.5.3",

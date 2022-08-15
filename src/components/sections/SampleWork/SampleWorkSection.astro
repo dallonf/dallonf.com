@@ -39,6 +39,9 @@ import teamFinderImg from './teamfinder.jpg';
     color: var(--color-text-light);
     min-height: var(--section-height);
     padding: var(--size-fluid-5) var(--size-fluid-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
   }
 
@@ -78,5 +81,26 @@ import teamFinderImg from './teamfinder.jpg';
   a,
   a:visited {
     color: var(--color-text-light);
+  }
+
+  @media (--lg-n-above) {
+    .sample-work-list {
+      margin-top: var(--size-fluid-4);
+      flex-direction: row;
+      gap: var(--size-fluid-4);
+      justify-content: center;
+    }
+
+    .sample-work-list>li {
+      max-inline-size: var(--size-header-2);
+      font-size: var(--font-size-0);
+      margin: 0;
+    }
+  }
+
+  @media (--xl-n-above) {
+    .sample-work-list {
+      gap: 10vw;
+    }
   }
 </style>
