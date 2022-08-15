@@ -11,5 +11,11 @@
   },
   "devDependencies": {
     "astro": "^1.0.5"
+  },
+  "dependencies": {
+    "@fontsource/clear-sans": "^4.5.3",
+    "@fontsource/dm-sans": "^4.5.8",
+    "minireset.css": "^0.0.7",
+    "open-props": "^1.4.12"
   }
 }
