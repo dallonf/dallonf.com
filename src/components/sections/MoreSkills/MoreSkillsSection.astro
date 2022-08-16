@@ -1,0 +1,49 @@
+---
+import { Debug } from 'astro/components';
+import SectionContainer from "@components/SectionContainer.astro";
+
+const icons = import.meta.glob("./logos/*.{svg,png}");
+
+const skillsList = await Promise.all([
+  ["Svelte", "svelte.svg"],
+  ["Vue", "vue.svg"],
+  ["Python", "python.svg"],
+  ["PyTorch", "pytorch.png"],
+  ["Unity", "unity.svg"],
+  ["Godot", "godot.svg"],
+  ["Tauri", "tauri.svg"],
+  ["Electron", "electron.svg"],
+  ["Rust", "rust.svg"],
+  ["Kotlin", "kotlin.svg"],
+  ["Go", "go.svg"],
+  ["C#", "csharp.svg"],
+  ["Lua", "lua.svg"],
+].map(async ([name, iconFile]) => {
+  const iconUrl = (await icons[`./logos/${iconFile}`]() as any).default;
+  return {
+    name,
+    iconUrl,
+  }
+}));
+---
+
+<SectionContainer id="more-skills">
+  <h2>And More...</h2>
+  <p>
+    I also have non-professional experience with other web frameworks,
+    machine learning, game development, and more:
+  </p>
+  <ul class="skills">
+    {skillsList.map(skill => {
+    return (
+    <li class="skill-entry">
+      <img src={skill.iconUrl} alt="" width="100" height="100"><span>{skill.name}</span>
+    </li>
+    );
+    })}
+  </ul>
+  <p class="cause">
+    I'm also writing my own programming language!<br />
+    Ask me about Cause...
+  </p>
+</SectionContainer>
