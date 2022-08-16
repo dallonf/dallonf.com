@@ -1,0 +1,24 @@
+---
+export interface Props {
+  bgColor?: string;
+  id: string;
+}
+
+const { id, bgColor = 'var(--color-bg-light)' } = Astro.props as Props;
+---
+
+<section id={id}>
+  <slot />
+</section>
+
+<style define:vars={{ 'section-bg-color' : bgColor }}>
+  section {
+    background-color: var(--section-bg-color);
+    min-height: var(--section-height);
+    padding: var(--size-fluid-5) var(--size-fluid-2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+</style>
