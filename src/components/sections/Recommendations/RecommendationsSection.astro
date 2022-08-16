@@ -20,10 +20,76 @@ import johnImg from './john.jpg';
     <img class="rec2 rec-img" src={johnImg} />
     <div class="rec2 rec-text">
       <blockquote>&ldquo;I was always impressed with his attention to detail and ability to find quick, quality
-        solutions to the challenges I gave to him. He’s always considering the customer’s / user’s needs when looking at
+        solutions to the challenges I gave to him. He&apos;s always considering the customer&apos;s / user&apos;s
+        needs when looking at
         options and comes prepared with the trade-offs.&rdquo;</blockquote>
       <div class="author">John Smith Jr.</div>
       <div class="role">Product Manager</div>
     </div>
   </div>
 </SectionContainer>
+
+<style>
+  .layout {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: none;
+    grid-template-rows: auto;
+  }
+
+  .rec-img {
+    margin-top: var(--size-fluid-3);
+    margin-left: auto;
+    margin-right: auto;
+    block-size: 18rem;
+  }
+
+  .rec-text {
+    padding: var(--size-fluid-3);
+    font-size: var(--font-size-fluid-1);
+  }
+
+  .author {
+    margin-top: var(--size-fluid-1);
+    font-size: var(--font-size-1);
+    font-weight: bold;
+  }
+
+  .role {
+    font-size: var(--font-size-0);
+    text-transform: uppercase;
+  }
+
+  .rec1.rec-bg {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    background: var(--gray-8);
+  }
+
+  .rec1.rec-img {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .rec1.rec-text {
+    grid-row: 2;
+    grid-column: 1;
+    color: var(--color-text-light);
+  }
+
+  .rec2.rec-bg {
+    grid-row: 3 / span 2;
+    grid-column: 1;
+    background: var(--color-bg-tan);
+  }
+
+  .rec2.rec-img {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  .rec2.rec-text {
+    grid-row: 4;
+    grid-column: 1;
+  }
+</style>
