@@ -1,0 +1,29 @@
+---
+import SectionContainer from '@components/SectionContainer.astro';
+import paulImg from './paul.jpg';
+import johnImg from './john.jpg';
+---
+
+<SectionContainer id="recommendations">
+  <div class="layout">
+    <div class="rec1 rec-bg" />
+    <img class="rec1 rec-img" src={paulImg} />
+    <div class="rec1 rec-text">
+      <blockquote>&ldquo;Dallon is a top-tier front end engineer. He possesses fantastic attention to detail, is capable
+        of
+        thinking through complicated use cases and edge cases, and is happy to share his opinion and speak up in the
+        name of the best user experience.&rdquo;</blockquote>
+      <div class="author">Paul Clark</div>
+      <div class="role">VP of Engineering</div>
+    </div>
+    <div class="rec2 rec-bg" />
+    <img class="rec2 rec-img" src={johnImg} />
+    <div class="rec2 rec-text">
+      <blockquote>&ldquo;I was always impressed with his attention to detail and ability to find quick, quality
+        solutions to the challenges I gave to him. He’s always considering the customer’s / user’s needs when looking at
+        options and comes prepared with the trade-offs.&rdquo;</blockquote>
+      <div class="author">John Smith Jr.</div>
+      <div class="role">Product Manager</div>
+    </div>
+  </div>
+</SectionContainer>
