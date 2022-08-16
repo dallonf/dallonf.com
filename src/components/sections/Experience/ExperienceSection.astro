@@ -1,15 +1,48 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro"
 import Role from './Role.astro';
+import volusionLogo from './volusion.svg';
+import phunwareLogo from './phunware.svg';
+import deploydLogo from './deployd.png';
 ---
 
 <SectionContainer id="experience">
   <div class="layout">
     <h2>Relevant Experience</h2>
     <ul class="roles-list">
-      <Role />
-      <Role />
-      <Role />
+      <Role year="2022" employer="Volusion" title="Senior Software Engineer" logo={volusionLogo}>
+        Led incremental refactoring of a complex page to improve performance and testability. Built GitHub Actions
+        workflows to automate key steps of deployment process. Mentored junior developers.
+      </Role>
+      <Role year="2019" employer="Phunware" title="Software Engineer" logo={phunwareLogo}>
+        Led automated testing initiative over multiple codebases. Led adoption of GraphQL for custom CMS.
+      </Role>
+      <Role year="2012" employer="Deployd" title="Developer" logo={deploydLogo}>
+        Developed front-end dashboard for backend-as-a-service. Wrote documentation and examples across multiple
+        front-end frameworks. Participated in architectural discussions and planning.
+      </Role>
     </ul>
   </div>
 </SectionContainer>
+
+<style>
+  .layout {
+    max-inline-size: var(--size-content-3);
+    align-self: center;
+    padding-left: var(--size-fluid-2);
+    padding-right: var(--size-fluid-2);
+  }
+
+  h2 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+    font-size: var(--font-size-fluid-2);
+  }
+
+  .roles-list {
+    margin-top: var(--size-fluid-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-fluid-4);
+  }
+</style>

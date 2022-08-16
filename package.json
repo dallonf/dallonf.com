@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@fontsource/public-sans": "^4.5.10",
     "astro": "^1.0.5",
     "postcss-custom-media": "^8.0.2"
   },
