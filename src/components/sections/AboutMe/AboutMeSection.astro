@@ -1,0 +1,80 @@
+---
+import photo from './photo.jpg';
+---
+
+<section id="about-me">
+  <div class="layout">
+    <img src={photo} width="1412" height="1412" alt="A photo of myself.">
+    <h2>About Me</h2>
+    <p>
+      I am a thoughtful senior software engineer with 10 years of experience in web application UI development.
+      I consider myself an expert with React, and highly versatile with other stacks, including back-end development.
+    </p>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: var(--color-bg-tan);
+    min-height: var(--section-height);
+    padding: var(--size-fluid-5) var(--size-fluid-2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  img {
+    display: none;
+  }
+
+  h2 {
+    font-family: var(--accent-font);
+    font-weight: bolder;
+    font-size: var(--font-size-fluid-2);
+  }
+
+  p {
+    margin-top: var(--size-fluid-2);
+    max-inline-size: var(--size-content-2);
+  }
+
+  @media (--lg-n-above) {
+    section {
+      align-items: center;
+    }
+
+    .layout {
+      width: 100%;
+      max-width: var(--max-section-width);
+
+      display: grid;
+      align-content: center;
+      justify-content: space-between;
+      grid-template-areas:
+        ". img"
+        "header img"
+        "description img"
+        ". img";
+      grid-template-rows: 1fr auto auto 1fr;
+      grid-template-columns: 1fr 1fr;
+      padding-left: var(--size-fluid-4);
+      padding-right: var(--size-fluid-4);
+      column-gap: var(--size-fluid-4);
+    }
+
+    img {
+      display: block;
+      grid-area: img;
+      width: 25rem;
+      place-self: end;
+    }
+
+    h2 {
+      grid-area: header;
+    }
+
+    p {
+      grid-area: description;
+    }
+  }
+</style>
