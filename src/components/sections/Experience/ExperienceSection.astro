@@ -45,4 +45,22 @@ import deploydLogo from './deployd.png';
     flex-direction: column;
     gap: var(--size-fluid-4);
   }
+
+  @media (--lg-n-above) {
+    h2 {
+      max-inline-size: var(--size-header-1);
+    }
+
+    .layout {
+      display: grid;
+      max-inline-size: none;
+      max-width: var(--max-section-width);
+      grid-template-columns: 1fr 1fr;
+      gap: var(--size-fluid-4);
+    }
+
+    .roles-list {
+      margin-top: 0;
+    }
+  }
 </style>
