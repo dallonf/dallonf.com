@@ -17,6 +17,11 @@ import photo from './photo.jpg';
 </SectionContainer>
 
 <style>
+  .size-constraint {
+    margin-left: var(--size-fluid-2);
+    margin-right: var(--size-fluid-2);
+  }
+
   img {
     display: none;
   }
@@ -53,8 +58,6 @@ import photo from './photo.jpg';
         ". img";
       grid-template-rows: 1fr auto auto 1fr;
       grid-template-columns: 1fr 1fr;
-      padding-left: var(--size-fluid-4);
-      padding-right: var(--size-fluid-4);
       column-gap: var(--size-fluid-4);
     }
 

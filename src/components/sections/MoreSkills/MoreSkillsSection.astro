@@ -28,21 +28,23 @@ const skillsList = await Promise.all([
 ---
 
 <SectionContainer id="more-skills">
-  <h2>And More...</h2>
-  <p class="summary">
-    I also have non-professional experience with other web frameworks,
-    machine learning, game development, and more:
-  </p>
-  <ul class="skill-list">
-    {skillsList.map(skill => {
-    return (
-    <li class="skill-entry">
-      <img src={skill.iconUrl} alt="">
-      <span class="skill-name">{skill.name}</span>
-    </li>
-    );
-    })}
-  </ul>
+  <div class="size-constraint">
+    <h2>And More...</h2>
+    <p class="summary">
+      I also have non-professional experience with other web frameworks,
+      machine learning, game development, and more:
+    </p>
+    <ul class="skill-list">
+      {skillsList.map(skill => {
+      return (
+      <li class="skill-entry">
+        <img src={skill.iconUrl} alt="">
+        <span class="skill-name">{skill.name}</span>
+      </li>
+      );
+      })}
+    </ul>
+  </div>
   <p class="cause">
     I'm also writing my own programming language!<br />
     Ask me about Cause...
@@ -50,6 +52,13 @@ const skillsList = await Promise.all([
 </SectionContainer>
 
 <style>
+  .size-constraint {
+    max-width: var(--max-section-width);
+    align-self: center;
+    margin-left: var(--size-fluid-2);
+    margin-right: var(--size-fluid-2);
+  }
+
   h2 {
     text-transform: uppercase;
     font-family: var(--accent-font);
@@ -87,5 +96,32 @@ const skillsList = await Promise.all([
     display: block;
     margin-top: var(--size-fluid-1);
     color: var(--color-text-darkish);
+  }
+
+  .cause {
+    text-align: right;
+    margin-top: var(--size-fluid-4);
+    padding: var(--size-fluid-2);
+    font-size: var(--font-size-fluid-0);
+  }
+
+  @media (--md-n-above) {
+    .cause {
+      position: relative;
+      background: var(--color-bg-tan);
+      width: max-content;
+      margin-left: auto;
+    }
+
+    .cause::before {
+      content: '';
+      display: block;
+      width: var(--size-7);
+      position: absolute;
+      background-image: linear-gradient(to bottom right, transparent 50%, var(--color-bg-tan) 0);
+      top: 0;
+      left: calc(var(--size-7) * -1);
+      bottom: 0;
+    }
   }
 </style>
