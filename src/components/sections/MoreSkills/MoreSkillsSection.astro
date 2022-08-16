@@ -99,28 +99,59 @@ const skillsList = await Promise.all([
   }
 
   .cause {
-    text-align: right;
+    width: max-content;
     margin-top: var(--size-fluid-4);
     padding: var(--size-fluid-2);
     font-size: var(--font-size-fluid-0);
+    position: relative;
+    background: var(--color-bg-tan);
+    --angle-width: var(--size-7);
+  }
+
+  @media (--md-n-below) {
+    .cause {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cause::before {
+      content: '';
+      display: block;
+      width: var(--angle-width);
+      position: absolute;
+      background-image: linear-gradient(to bottom right, transparent 50%, var(--color-bg-tan) 0);
+      top: 0;
+      left: calc(var(--angle-width) * -1);
+      bottom: 0;
+    }
+
+    .cause::after {
+      content: '';
+      display: block;
+      width: var(--angle-width);
+      position: absolute;
+      background-image: linear-gradient(to top left, transparent 50%, var(--color-bg-tan) 0);
+      top: 0;
+      right: calc(var(--angle-width) * -1);
+      bottom: 0;
+    }
   }
 
   @media (--md-n-above) {
     .cause {
-      position: relative;
-      background: var(--color-bg-tan);
-      width: max-content;
+      text-align: right;
       margin-left: auto;
     }
 
     .cause::before {
       content: '';
       display: block;
-      width: var(--size-7);
+      width: var(--angle-width);
       position: absolute;
       background-image: linear-gradient(to bottom right, transparent 50%, var(--color-bg-tan) 0);
       top: 0;
-      left: calc(var(--size-7) * -1);
+      left: calc(var(--angle-width) * -1);
       bottom: 0;
     }
   }
