@@ -1,0 +1,53 @@
+---
+import SectionContainer from "@components/SectionContainer.astro"
+---
+
+<SectionContainer id="skills" padding={false}>
+  <div class="layout">
+    <div class="react-side">
+      <h2>Skills & Proficiencies</h2>
+      <h3><span class="exp-highlight">7+</span> years of React</h3>
+    </div>
+    <div class="other-side" />
+  </div>
+</SectionContainer>
+
+<style>
+  .layout {
+    flex: 1;
+    display: grid;
+  }
+
+  .react-side {
+    /* hardcode react bg color */
+    background: #222222;
+    color: var(--color-text-light);
+    background-image: url(./react.svg);
+    background-size: 10.0rem 8.9rem;
+    background-repeat: no-repeat;
+    background-position: bottom -1.9rem left -1.9rem;
+  }
+
+  h2 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+    font-size: var(--font-size-fluid-2);
+  }
+
+  @media (--lg-n-above) {
+    .layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  h3 {
+    text-transform: uppercase;;
+    font-family: var(--accent-font);
+    font-weight: bold;
+  }
+
+  .exp-highlight {
+    /* hardcode react color */
+    color: #00d8ff;
+  }
+</style>
