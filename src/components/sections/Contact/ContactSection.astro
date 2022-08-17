@@ -4,37 +4,39 @@ import photo from "./photo.jpg";
 ---
 
 <SectionContainer id="contact" bgColor="#060606">
-  <div class="layout">
-    <h2>Get in touch</h2>
-    <img
-      src={photo}
-      alt="A photo of Dallon being a bit silly"
-      width="427"
-      height="285"
-    />
-    <div class="contact-info">
-      <div class="name">Dallon Feldner</div>
-      <button type="button" class="eemayl-reveal" id="eemayl-reveal"
-        >Click to show contact information.
-      </button>
-      <div class="explanation" id="eemayl-explanation">
-        (sorry for the hassle, but I have to keep the bots at bay!)
+  <div class="sizing-container">
+    <div class="layout">
+      <h2>Get in touch</h2>
+      <img
+        src={photo}
+        alt="A photo of Dallon being a bit silly"
+        width="427"
+        height="285"
+      />
+      <div class="contact-info">
+        <div class="name">Dallon Feldner</div>
+        <button type="button" class="eemayl-reveal" id="eemayl-reveal"
+          >Click to show contact information.
+        </button>
+        <div class="explanation" id="eemayl-explanation">
+          (sorry for the hassle, but I have to keep the bots at bay!)
+        </div>
       </div>
-    </div>
-    <div class="social">
-      <h3>Connect with me</h3>
-      <ul>
-        <li>
-          <a href="https://github.com/dallonf" aria-label="GitHub"
-            ><i class="fa-brands fa-github"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/dallonf/" aria-label="LinkedIn"
-            ><i class="fa-brands fa-linkedin"></i>
-          </a>
-        </li>
-      </ul>
+      <div class="social">
+        <h3>Connect with me</h3>
+        <ul>
+          <li>
+            <a href="https://github.com/dallonf" aria-label="GitHub"
+              ><i class="fa-brands fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dallonf/" aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </SectionContainer>
@@ -128,8 +130,14 @@ import photo from "./photo.jpg";
   }
 
   @media (--md-n-above) {
+    .sizing-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
     .layout {
-      background-color: tomato;
+      flex: 1;
       max-width: var(--max-section-width);
       display: grid;
       grid:
@@ -144,7 +152,6 @@ import photo from "./photo.jpg";
     }
 
     img {
-      opacity: 0.5;
       margin: 0;
       grid-area: img;
       object-fit: cover;
