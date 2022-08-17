@@ -1,6 +1,7 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro";
 import photo from "./photo.jpg";
+import AboutText from "./AboutText.md";
 ---
 
 <SectionContainer id="about-me" bgColor="var(--color-bg-tan)">
@@ -8,13 +9,9 @@ import photo from "./photo.jpg";
     <div class="layout">
       <img src={photo} width="1412" height="1412" alt="A photo of myself." />
       <h2>About Me</h2>
-      <p>
-        I am a thoughtful senior software engineer based in Austin, TX with 10 years of experience
-        in web application UI development. I am continuously learning and honing
-        my craft, driven to learn more and build better software. I consider
-        myself an expert with React and TypeScript, and highly versatile with
-        other stacks, including back-end development.
-      </p>
+      <div class="content">
+        <AboutText />
+      </div>
     </div>
   </div>
 </SectionContainer>
@@ -35,7 +32,7 @@ import photo from "./photo.jpg";
     font-size: var(--font-size-fluid-2);
   }
 
-  p {
+  .content {
     margin-top: var(--size-fluid-2);
     max-inline-size: var(--size-content-2);
   }
@@ -75,7 +72,7 @@ import photo from "./photo.jpg";
       grid-area: header;
     }
 
-    p {
+    .content {
       grid-area: description;
     }
   }
