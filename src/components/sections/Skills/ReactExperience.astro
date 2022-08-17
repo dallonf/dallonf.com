@@ -1,3 +1,35 @@
+---
+const ecosystemOverflow = [
+  "MobX",
+  "Create React App",
+  "Tailwind",
+  "Sass",
+  "Storybook",
+  "Enzyme",
+  "NextJS",
+  "Immer",
+  "React Router",
+  "Redux Form",
+  "Formik",
+  "React Hook Form",
+  "Material UI",
+  "Cypress",
+  "Blueprint",
+  "MSW",
+  "Downshift",
+  "React Select",
+  "Axios",
+  "Styleguidist",
+  "ProseMirror",
+];
+
+function opacity(index: number) {
+  const percent = (ecosystemOverflow.length - index) / ecosystemOverflow.length;
+  const min = 0.2;
+  return min + (1 - min) * percent;
+}
+---
+
 <div class="layout">
   <h3><span class="exp-highlight">7+</span> years of React</h3>
   <div class="then-and-now then">
@@ -20,12 +52,13 @@
       <li>useEffect()</li>
     </ul>
   </div>
+  <h4 class="ecosystem-header">Ecosystem:</h4>
   <div class="ecosystem ecosystem1">
-    <h4>Ecosystem:</h4>
     <ul>
       <li>React Query</li>
       <li>Apollo Client / GraphQL</li>
       <li>Redux</li>
+      <li>Styled Components</li>
     </ul>
   </div>
   <div class="ecosystem ecosystem2">
@@ -33,18 +66,31 @@
       <li>TypeScript</li>
       <li>Jest</li>
       <li>React Testing Library</li>
-      <li>Styled Components</li>
     </ul>
+  </div>
+  <div class="ecosystem-overflow">
+    <ul>
+      {
+        ecosystemOverflow.map((item, i) => (
+          <li style={`opacity: ${opacity(i)};`}>{item}</li>
+        ))
+      }
+    </ul>
+    <div class="and-more">and more!</div>
   </div>
 </div>
 
 <style>
   .layout {
     display: grid;
-    grid: "heading heading heading"
+    grid:
+      "heading heading heading"
       ". . ." var(--size-fluid-2) "then . and-now"
-      ". . ." var(--size-fluid-3) "ecosystem1 . ecosystem2"
-      "ecosystem-overflow ecosystem-overflow ecosystem-overflow" / auto 1fr auto;
+      ". . ." var(--size-fluid-3)
+      "ecosystem-header ecosystem-header ecosystem-header"
+      "ecosystem1 . ecosystem2"
+      ". . ." var(--size-fluid-1)
+      "ecosystem-overflow ecosystem-overflow ecosystem-overflow" / auto minmax(var(--size-fluid-2), 1fr) auto;
   }
 
   h3 {
@@ -62,7 +108,7 @@
   ul {
     list-style: disc;
     padding-left: var(--size-fluid-1);
-    font-size: var(--size-fluid-1);
+    font-size: var(--font-size-0);
   }
 
   .then {
@@ -78,16 +124,43 @@
     font-weight: bold;
   }
 
+  .ecosystem-header {
+    grid-area: ecosystem-header;
+    font-size: var(--font-size-0);
+    font-weight: bold;
+  }
+
   .ecosystem1 {
     grid-area: ecosystem1;
   }
 
-  .ecosystem1 h4 {
-    font-size: var(--size-fluid-1);
-    font-weight: bold;
-  }
-
   .ecosystem2 {
     grid-area: ecosystem2;
+  }
+
+  .ecosystem-overflow {
+    grid-area: ecosystem-overflow;
+    text-align: center;
+  }
+
+  .ecosystem-overflow ul {
+    list-style: none;
+    padding: 0;
+    font-size: var(--font-size-00);
+    display: block;
+  }
+
+  .ecosystem-overflow ul > li {
+    display: inline;
+  }
+
+  .ecosystem-overflow ul > li:not(:last-child)::after {
+    content: ", ";
+  }
+
+  .ecosystem-overflow .and-more {
+    font-size: var(--font-size-00);
+    margin-top: var(--size-1);
+    opacity: 0.4;
   }
 </style>
