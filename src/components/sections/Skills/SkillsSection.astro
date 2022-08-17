@@ -5,9 +5,9 @@ import ReactExperience from "./ReactExperience.astro";
 
 <SectionContainer id="skills" padding={false}>
   <div class="layout">
+    <h2 class="heading">Skills & Proficiencies</h2>
     <div class="react-bg"></div>
     <div class="react-side">
-      <h2 style="margin-bottom: var(--size-fluid-1)">Skills & Proficiencies</h2>
       <ReactExperience />
     </div>
     <div class="other-side"></div>
@@ -18,13 +18,25 @@ import ReactExperience from "./ReactExperience.astro";
   .layout {
     flex: 1;
     display: grid;
-    grid-template-columns: [react-start react-content-start other-start other-content-start] 1fr [react-end react-content-end other-end other-content-end];
-    grid-template-rows: [react-start] auto [react-end other-start] auto [other-end];
+    grid-template: [react-bg-start] "heading" "react" [react-bg-end other-bg-start] "other" [other-bg-end] / [react-bg-start other-bg-start] 1fr [react-bg-end other-bg-end];
+    /* grid-template-columns: [heading-start react-start react-content-start other-start other-content-start] 1fr [react-end react-content-end other-end other-content-end heading-end];
+    grid-template-rows:
+      [heading-start react-start] auto [heading-end] var(--size-fluid-1)
+      [react-content-start] auto [react-content-react-end other-start] auto [other-end]; */
+  }
+
+  .heading {
+    grid-area: heading;
+    padding-top: var(--size-fluid-2);
+    padding-left: var(--size-fluid-4);
+    padding-right: var(--size-fluid-4);
+    color: var(--color-text-light);
+    z-index: 2;
   }
 
   .react-bg {
-    grid-column: react-start / react-end;
-    grid-row: react-start / react-end;
+    grid-column: react-bg-start / react-bg-end;
+    grid-row: react-bg-start / react-bg-end;
     /* hardcode react bg color */
     background: #222222;
     background-image: url(./react.svg);
@@ -34,8 +46,7 @@ import ReactExperience from "./ReactExperience.astro";
   }
 
   .react-side {
-    grid-column: react-content-start / react-end;
-    grid-row: react-start / react-end;
+    grid-area: react;
     color: var(--color-text-light);
     padding-top: var(--size-fluid-2);
     padding-left: var(--size-fluid-4);
@@ -46,8 +57,7 @@ import ReactExperience from "./ReactExperience.astro";
   }
 
   .other-side {
-    grid-column: other-start / other-content-end;
-    grid-row: other-start / other-end;
+    grid-area: other;
   }
 
   h2 {
@@ -59,12 +69,13 @@ import ReactExperience from "./ReactExperience.astro";
   @media (--lg-n-above) {
     .layout {
       --half-section: calc(var(--max-section-width) / 2);
-      grid-template-columns:
-        [react-start] 1fr [react-content-start] min(50%, var(--half-section))
-        [react-end other-start] min(50%, var(--half-section))
-        [other-content-end]
-        1fr [other-end];
-      grid-template-rows: [react-start other-start] auto [react-end other-end];
+      grid-template:
+        [react-bg-start other-bg-start] ". heading . ." ". react other ." [react-bg-end other-bg-end] /
+        [react-bg-start] 1fr min(50%, var(--half-section))
+        [react-bg-end other-bg-start] min(
+          50%,
+          var(--half-section)
+        ) auto [other-bg-end];
     }
   }
 </style>

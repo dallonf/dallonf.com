@@ -1,49 +1,43 @@
 ---
-import { Debug } from 'astro/components';
+import { Debug } from "astro/components";
 import SectionContainer from "@components/SectionContainer.astro";
+import SkillsList from "@components/SkillsList.astro";
 
 const icons = import.meta.glob("./logos/*.{svg,png}");
 
-const skillsList = await Promise.all([
-  ["Svelte", "svelte.svg"],
-  ["Vue", "vue.svg"],
-  ["Python", "python.svg"],
-  ["PyTorch", "pytorch.png"],
-  ["Unity", "unity.svg"],
-  ["Godot", "godot.svg"],
-  ["Tauri", "tauri.svg"],
-  ["Electron", "electron.svg"],
-  ["Rust", "rust.svg"],
-  ["Kotlin", "kotlin.svg"],
-  ["Go", "go.svg"],
-  ["C#", "csharp.svg"],
-  ["Lua", "lua.svg"],
-].map(async ([name, iconFile]) => {
-  const iconUrl = (await icons[`./logos/${iconFile}`]() as any).default;
-  return {
-    name,
-    iconUrl,
-  }
-}));
+const skillsList = await Promise.all(
+  [
+    ["Svelte", "svelte.svg"],
+    ["Vue", "vue.svg"],
+    ["Python", "python.svg"],
+    ["PyTorch", "pytorch.png"],
+    ["Unity", "unity.svg"],
+    ["Godot", "godot.svg"],
+    ["Tauri", "tauri.svg"],
+    ["Electron", "electron.svg"],
+    ["Rust", "rust.svg"],
+    ["Kotlin", "kotlin.svg"],
+    ["Go", "go.svg"],
+    ["C#", "csharp.svg"],
+    ["Lua", "lua.svg"],
+  ].map(async ([name, iconFile]) => {
+    const iconUrl = ((await icons[`./logos/${iconFile}`]()) as any).default;
+    return {
+      name,
+      iconUrl,
+    };
+  })
+);
 ---
 
 <SectionContainer id="more-skills">
   <div class="size-constraint">
     <h3>And More...</h3>
     <p class="summary">
-      I also have non-professional experience with other web frameworks,
-      machine learning, game development, and more:
+      I also have non-professional experience with other web frameworks, machine
+      learning, game development, and more:
     </p>
-    <ul class="skill-list">
-      {skillsList.map(skill => {
-      return (
-      <li class="skill-entry">
-        <img src={skill.iconUrl} alt="">
-        <span class="skill-name">{skill.name}</span>
-      </li>
-      );
-      })}
-    </ul>
+    <SkillsList skills={skillsList} />
   </div>
   <p class="cause">
     I'm also writing my own programming language!<br />
@@ -72,32 +66,6 @@ const skillsList = await Promise.all([
     color: var(--color-text-darkish);
   }
 
-  .skill-list {
-    margin-top: var(--size-fluid-3);
-    display: flex;
-    flex-flow: row wrap;
-    column-gap: var(--size-fluid-5);
-    row-gap: var(--size-fluid-2);
-    justify-content: center;
-  }
-
-  .skill-entry {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .skill-entry>img {
-    block-size: var(--size-fluid-5);
-  }
-
-  .skill-name {
-    display: block;
-    margin-top: var(--size-fluid-1);
-    color: var(--color-text-darkish);
-  }
-
   .cause {
     width: max-content;
     margin-top: var(--size-fluid-4);
@@ -116,22 +84,30 @@ const skillsList = await Promise.all([
     }
 
     .cause::before {
-      content: '';
+      content: "";
       display: block;
       width: var(--angle-width);
       position: absolute;
-      background-image: linear-gradient(to bottom right, transparent 50%, var(--color-bg-tan) 0);
+      background-image: linear-gradient(
+        to bottom right,
+        transparent 50%,
+        var(--color-bg-tan) 0
+      );
       top: 0;
       left: calc(var(--angle-width) * -1);
       bottom: 0;
     }
 
     .cause::after {
-      content: '';
+      content: "";
       display: block;
       width: var(--angle-width);
       position: absolute;
-      background-image: linear-gradient(to top left, transparent 50%, var(--color-bg-tan) 0);
+      background-image: linear-gradient(
+        to top left,
+        transparent 50%,
+        var(--color-bg-tan) 0
+      );
       top: 0;
       right: calc(var(--angle-width) * -1);
       bottom: 0;
@@ -145,11 +121,15 @@ const skillsList = await Promise.all([
     }
 
     .cause::before {
-      content: '';
+      content: "";
       display: block;
       width: var(--angle-width);
       position: absolute;
-      background-image: linear-gradient(to bottom right, transparent 50%, var(--color-bg-tan) 0);
+      background-image: linear-gradient(
+        to bottom right,
+        transparent 50%,
+        var(--color-bg-tan) 0
+      );
       top: 0;
       left: calc(var(--angle-width) * -1);
       bottom: 0;
