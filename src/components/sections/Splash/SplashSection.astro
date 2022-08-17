@@ -7,9 +7,11 @@ import photo from "./photo.jpg";
   <div class="layout">
     <img src={photo} alt="A photo of Dallon Feldner." width="276" height="224"
     />
-    <h1>Dallon Feldner</h1>
-    <p class="subtitle">Senior Software Engineer</p>
-    <a class="button" href="#contact">Get in touch</a>
+    <div class="info">
+      <h1>Dallon Feldner</h1>
+      <p class="subtitle">Senior Software Engineer</p>
+      <a class="button" href="#contact">Get in touch</a>
+    </div>
   </div>
 </SectionContainer>
 
@@ -39,5 +41,46 @@ import photo from "./photo.jpg";
     background: var(--color-bg-dark);
     margin-top: var(--size-fluid-4);
     padding: var(--size-fluid-2) var(--size-fluid-5);
+  }
+
+  @media (--md-n-above) {
+    .layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+    }
+
+    img {
+      object-fit: cover;
+      align-self: stretch;
+      width: 100%;
+    }
+
+    .info {
+      align-self: center;
+      padding-top: var(--size-fluid-5);
+      padding-bottom: var(--size-fluid-5);
+      padding-left: var(--size-fluid-5);
+      padding-right: var(--size-fluid-5);
+    }
+
+    h1 {
+      font-size: var(--font-size-fluid-2);
+    }
+
+    .subtitle {
+      font-size: var(--font-size-fluid-1);
+    }
+  }
+
+  @media (--xl-n-above) {
+    h1 {
+      font-size: var(--font-size-fluid-3);
+    }
+
+    .subtitle {
+      font-size: var(--font-size-fluid-2);
+    }
   }
 </style>
