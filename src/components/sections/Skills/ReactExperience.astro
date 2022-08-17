@@ -30,8 +30,8 @@ function opacity(index: number) {
 }
 ---
 
+<h3><span class="exp-highlight">7+</span> years of React</h3>
 <div class="layout">
-  <h3><span class="exp-highlight">7+</span> years of React</h3>
   <div class="then-and-now then">
     <h4>Then...</h4>
     <ul>
@@ -83,6 +83,7 @@ function opacity(index: number) {
 <style>
   .layout {
     display: grid;
+    align-self: center;
     max-width: 25rem;
     grid:
       "heading heading heading"
@@ -91,7 +92,11 @@ function opacity(index: number) {
       "ecosystem-header ecosystem-header ecosystem-header"
       "ecosystem1 . ecosystem2"
       ". . ." var(--size-fluid-1)
-      "ecosystem-overflow ecosystem-overflow ecosystem-overflow" / auto minmax(var(--size-fluid-2), 1fr) auto;
+      "ecosystem-overflow ecosystem-overflow ecosystem-overflow" / auto minmax(
+        var(--size-fluid-2),
+        1fr
+      )
+      auto;
   }
 
   h3 {
@@ -163,5 +168,11 @@ function opacity(index: number) {
     font-size: var(--font-size-00);
     margin-top: var(--size-1);
     opacity: 0.4;
+  }
+
+  @media (--lg-n-above) {
+    .layout {
+      align-self: flex-start;
+    }
   }
 </style>
