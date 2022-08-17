@@ -1,15 +1,16 @@
 ---
-import SectionContainer from "@components/SectionContainer.astro"
+import SectionContainer from "@components/SectionContainer.astro";
 import ReactExperience from "./ReactExperience.astro";
 ---
 
 <SectionContainer id="skills" padding={false}>
   <div class="layout">
+    <div class="react-bg"></div>
     <div class="react-side">
       <h2 style="margin-bottom: var(--size-fluid-1)">Skills & Proficiencies</h2>
       <ReactExperience />
     </div>
-    <div class="other-side" />
+    <div class="other-side"></div>
   </div>
 </SectionContainer>
 
@@ -17,20 +18,34 @@ import ReactExperience from "./ReactExperience.astro";
   .layout {
     flex: 1;
     display: grid;
+    grid-template-columns: [react-start react-content-start other-start other-content-start] 1fr [react-end react-content-end other-end other-content-end];
+    grid-template-rows: [react-start] auto [react-end other-start] auto [other-end];
+  }
+
+  .react-bg {
+    grid-column: react-start / react-end;
+    grid-row: react-start / react-end;
+    /* hardcode react bg color */
+    background: #222222;
+    background-image: url(./react.svg);
+    background-size: 10rem 8.9rem;
+    background-repeat: no-repeat;
+    background-position: bottom -1.9rem left -1.9rem;
   }
 
   .react-side {
-    /* hardcode react bg color */
-    background: #222222;
+    grid-column: react-content-start / react-end;
+    grid-row: react-start / react-end;
     color: var(--color-text-light);
-    background-image: url(./react.svg);
-    background-size: 10.0rem 8.9rem;
-    background-repeat: no-repeat;
-    background-position: bottom -1.9rem left -1.9rem;
     padding-top: var(--size-fluid-2);
     padding-left: var(--size-fluid-4);
     padding-right: var(--size-fluid-4);
     padding-bottom: 6rem;
+  }
+
+  .other-side {
+    grid-column: other-start / other-content-end;
+    grid-row: other-start / other-end;
   }
 
   h2 {
@@ -41,7 +56,13 @@ import ReactExperience from "./ReactExperience.astro";
 
   @media (--lg-n-above) {
     .layout {
-      grid-template-columns: 1fr 1fr;
+      --half-section: calc(var(--max-section-width) / 2);
+      grid-template-columns:
+        [react-start] 1fr [react-content-start] min(50%, var(--half-section))
+        [react-end other-start] min(50%, var(--half-section))
+        [other-content-end]
+        1fr [other-end];
+      grid-template-rows: [react-start other-start] auto [react-end other-end];
     }
   }
 </style>
