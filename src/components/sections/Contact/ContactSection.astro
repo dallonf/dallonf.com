@@ -14,8 +14,10 @@ import photo from "./photo.jpg";
     />
     <div class="contact-info">
       <div class="name">Dallon Feldner</div>
-      <button class="eemayl-reveal">Click to show contact information.</button>
-      <div class="explanation">
+      <button type="button" class="eemayl-reveal" id="eemayl-reveal"
+        >Click to show contact information.
+      </button>
+      <div class="explanation" id="eemayl-explanation">
         (sorry for the hassle, but I have to keep the bots at bay!)
       </div>
     </div>
@@ -36,6 +38,22 @@ import photo from "./photo.jpg";
     </div>
   </div>
 </SectionContainer>
+
+<script>
+  const replaceWith = "ZGFsbG9uZmRldkBnbWFpbC5jb20=";
+
+  const btn = document.getElementById("eemayl-reveal")!;
+  btn.addEventListener("click", (e) => {
+    console.log("clicked");
+    const newLink = document.createElement("a");
+    const replacementText = atob(replaceWith);
+    newLink.text = replacementText;
+    newLink.href = `mailto:${replacementText}`;
+    newLink.classList.add("eemayl-hidden-link");
+    btn.replaceWith(newLink);
+    document.getElementById("eemayl-explanation")!.remove();
+  });
+</script>
 
 <style>
   .layout {
@@ -75,6 +93,10 @@ import photo from "./photo.jpg";
 
   .eemayl-reveal:is(:hover, :focus) {
     background: var(--gray-8);
+  }
+
+  :global(.eemayl-hidden-link) {
+    color: var(--color-text-light);
   }
 
   .explanation {
