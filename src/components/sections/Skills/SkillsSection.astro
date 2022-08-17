@@ -1,12 +1,13 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro"
+import ReactExperience from "./ReactExperience.astro";
 ---
 
 <SectionContainer id="skills" padding={false}>
   <div class="layout">
     <div class="react-side">
-      <h2>Skills & Proficiencies</h2>
-      <h3><span class="exp-highlight">7+</span> years of React</h3>
+      <h2 style="margin-bottom: var(--size-fluid-1)">Skills & Proficiencies</h2>
+      <ReactExperience />
     </div>
     <div class="other-side" />
   </div>
@@ -26,6 +27,7 @@ import SectionContainer from "@components/SectionContainer.astro"
     background-size: 10.0rem 8.9rem;
     background-repeat: no-repeat;
     background-position: bottom -1.9rem left -1.9rem;
+    padding: var(--size-fluid-2) var(--size-fluid-5);
   }
 
   h2 {
@@ -38,16 +40,5 @@ import SectionContainer from "@components/SectionContainer.astro"
     .layout {
       grid-template-columns: 1fr 1fr;
     }
-  }
-
-  h3 {
-    text-transform: uppercase;;
-    font-family: var(--accent-font);
-    font-weight: bold;
-  }
-
-  .exp-highlight {
-    /* hardcode react color */
-    color: #00d8ff;
   }
 </style>

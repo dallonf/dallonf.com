@@ -1,0 +1,93 @@
+<div class="layout">
+  <h3><span class="exp-highlight">7+</span> years of React</h3>
+  <div class="then-and-now then">
+    <h4>Then...</h4>
+    <ul>
+      <li>Class Components</li>
+      <li>Flux Patterns</li>
+      <li>PropTypes</li>
+      <li>setState()</li>
+      <li>componentWillMount()</li>
+    </ul>
+  </div>
+  <div class="then-and-now and-now">
+    <h4>...and now</h4>
+    <ul>
+      <li>Functional Components</li>
+      <li>Hooks</li>
+      <li>Context</li>
+      <li>useState()</li>
+      <li>useEffect()</li>
+    </ul>
+  </div>
+  <div class="ecosystem ecosystem1">
+    <h4>Ecosystem:</h4>
+    <ul>
+      <li>React Query</li>
+      <li>Apollo Client / GraphQL</li>
+      <li>Redux</li>
+    </ul>
+  </div>
+  <div class="ecosystem ecosystem2">
+    <ul>
+      <li>TypeScript</li>
+      <li>Jest</li>
+      <li>React Testing Library</li>
+      <li>Styled Components</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .layout {
+    display: grid;
+    grid: "heading heading heading"
+      ". . ." var(--size-fluid-2) "then . and-now"
+      ". . ." var(--size-fluid-3) "ecosystem1 . ecosystem2"
+      "ecosystem-overflow ecosystem-overflow ecosystem-overflow" / auto 1fr auto;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-family: var(--accent-font);
+    font-weight: bold;
+    grid-area: heading;
+  }
+
+  .exp-highlight {
+    /* hardcode react color */
+    color: #00d8ff;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: var(--size-fluid-1);
+    font-size: var(--size-fluid-1);
+  }
+
+  .then {
+    grid-area: then;
+  }
+
+  .and-now {
+    grid-area: and-now;
+  }
+
+  .then-and-now h4 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+  }
+
+  .ecosystem1 {
+    grid-area: ecosystem1;
+  }
+
+  .ecosystem1 h4 {
+    font-size: var(--size-fluid-1);
+    font-weight: bold;
+  }
+
+  .ecosystem2 {
+    grid-area: ecosystem2;
+  }
+</style>
