@@ -1,11 +1,11 @@
 ---
-import { Debug } from "astro/components";
 import SectionContainer from "@components/SectionContainer.astro";
 import SkillsList from "@components/SkillsList.astro";
+import { lookupSkillsList } from "@components/skillsListUtils";
 
 const icons = import.meta.glob("./logos/*.{svg,png}");
 
-const skillsList = await Promise.all(
+const skillsList = await lookupSkillsList(
   [
     ["Svelte", "svelte.svg"],
     ["Vue", "vue.svg"],
@@ -20,13 +20,8 @@ const skillsList = await Promise.all(
     ["Go", "go.svg"],
     ["C#", "csharp.svg"],
     ["Lua", "lua.svg"],
-  ].map(async ([name, iconFile]) => {
-    const iconUrl = ((await icons[`./logos/${iconFile}`]()) as any).default;
-    return {
-      name,
-      iconUrl,
-    };
-  })
+  ],
+  icons
 );
 ---
 

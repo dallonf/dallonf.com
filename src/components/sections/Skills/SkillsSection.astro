@@ -1,6 +1,31 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro";
+import SkillsList from "@components/SkillsList.astro";
+import { lookupSkillsList } from "@components/skillsListUtils";
 import ReactExperience from "./ReactExperience.astro";
+
+const icons = import.meta.glob("./logos/*.{svg,png}");
+
+const toolingIcons = await lookupSkillsList(
+  [
+    ["Vite", "vite.png"],
+    ["Webpack", "webpack.png"],
+    ["ESLint", "eslint.png"],
+    ["GitHub Actions", "github-actions.png"],
+  ],
+  icons
+);
+
+const backendIcons = await lookupSkillsList(
+  [
+    ["Node.js", "node.png"],
+    ["Fastify", "fastify.png"],
+    ["Express", "express.png"],
+    ["PostgreSQL", "postgres.svg"],
+    ["AWS", "aws.svg"],
+  ],
+  icons
+);
 ---
 
 <SectionContainer id="skills" padding={false}>
@@ -10,7 +35,19 @@ import ReactExperience from "./ReactExperience.astro";
     <div class="react-side">
       <ReactExperience />
     </div>
-    <div class="other-side"></div>
+    <div class="other-side">
+      <div class="other-section">
+        <h3>Tooling</h3>
+        <p>Good tools and pipelines make the whole team more effective!</p>
+        <SkillsList skills={toolingIcons} />
+      </div>
+      <div class="other-section">
+        <h3>Back-End</h3>
+        <p>While I specialize in UI development, I can also work full-stack!</p>
+        <SkillsList skills={backendIcons} />
+        <p class="more">plus MySQL, Ruby on Rails, PHP, Java, Spring, and more</p>
+      </div>
+    </div>
   </div>
 </SectionContainer>
 
@@ -19,17 +56,19 @@ import ReactExperience from "./ReactExperience.astro";
     flex: 1;
     display: grid;
     grid-template: [react-bg-start] "heading" "react" [react-bg-end other-bg-start] "other" [other-bg-end] / [react-bg-start other-bg-start] 1fr [react-bg-end other-bg-end];
-    /* grid-template-columns: [heading-start react-start react-content-start other-start other-content-start] 1fr [react-end react-content-end other-end other-content-end heading-end];
-    grid-template-rows:
-      [heading-start react-start] auto [heading-end] var(--size-fluid-1)
-      [react-content-start] auto [react-content-react-end other-start] auto [other-end]; */
+  }
+
+  h2 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+    font-size: var(--font-size-fluid-2);
   }
 
   .heading {
+    margin-top: var(--size-fluid-2);
     grid-area: heading;
-    padding-top: var(--size-fluid-2);
-    padding-left: var(--size-fluid-4);
-    padding-right: var(--size-fluid-4);
+    padding-left: var(--size-fluid-2);
+    padding-right: var(--size-fluid-2);
     color: var(--color-text-light);
     z-index: 2;
   }
@@ -49,8 +88,8 @@ import ReactExperience from "./ReactExperience.astro";
     grid-area: react;
     color: var(--color-text-light);
     padding-top: var(--size-fluid-2);
-    padding-left: var(--size-fluid-4);
-    padding-right: var(--size-fluid-4);
+    padding-left: var(--size-fluid-2);
+    padding-right: var(--size-fluid-2);
     padding-bottom: 6rem;
     display: flex;
     flex-direction: column;
@@ -58,12 +97,26 @@ import ReactExperience from "./ReactExperience.astro";
 
   .other-side {
     grid-area: other;
+    padding: var(--size-fluid-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-fluid-4);
   }
 
-  h2 {
+  .other-section h3 {
+    text-transform: uppercase;
     font-family: var(--accent-font);
     font-weight: bold;
-    font-size: var(--font-size-fluid-2);
+  }
+
+  .other-section p {
+    color: var(--color-text-darkish);
+    max-inline-size: var(--size-content-2);
+  }
+
+  .more {
+    margin-top: var(--size-fluid-1);
+    font-size: var(--font-size-00);
   }
 
   @media (--lg-n-above) {
@@ -72,10 +125,8 @@ import ReactExperience from "./ReactExperience.astro";
       grid-template:
         [react-bg-start other-bg-start] ". heading . ." ". react other ." [react-bg-end other-bg-end] /
         [react-bg-start] 1fr min(50%, var(--half-section))
-        [react-bg-end other-bg-start] min(
-          50%,
-          var(--half-section)
-        ) auto [other-bg-end];
+        [react-bg-end other-bg-start] min(50%, var(--half-section))
+        1fr [other-bg-end];
     }
   }
 </style>
