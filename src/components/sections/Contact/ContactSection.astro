@@ -1,0 +1,107 @@
+---
+import SectionContainer from "@components/SectionContainer.astro";
+import photo from "./photo.jpg";
+---
+
+<SectionContainer id="contact" bgColor="#060606">
+  <div class="layout">
+    <h2>Get in touch</h2>
+    <img
+      src={photo}
+      alt="A photo of Dallon being a bit silly"
+      width="427"
+      height="285"
+    />
+    <div class="contact-info">
+      <div class="name">Dallon Feldner</div>
+      <button class="eemayl-reveal">Click to show contact information.</button>
+      <div class="explanation">
+        (sorry for the hassle, but I have to keep the bots at bay!)
+      </div>
+    </div>
+    <div class="social">
+      <h3>Connect with me</h3>
+      <ul>
+        <li>
+          <a href="https://github.com/dallonf" aria-label="GitHub"
+            ><i class="fa-brands fa-github"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/dallonf/" aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</SectionContainer>
+
+<style>
+  .layout {
+    margin-left: var(--size-fluid-2);
+    margin-right: var(--size-fluid-2);
+    color: var(--color-text-light);
+  }
+
+  h2 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+    font-size: var(--font-size-fluid-1);
+  }
+
+  img {
+    margin-top: var(--size-fluid-1);
+  }
+
+  .contact-info {
+    margin-top: var(--size-fluid-4);
+  }
+
+  .name {
+    font-family: var(--accent-font);
+    font-weight: bold;
+  }
+
+  .eemayl-reveal {
+    margin-top: var(--size-1);
+    display: inline-block;
+    background: var(--gray-9);
+    border: none;
+    color: var(--color-text-light);
+    padding: var(--size-1) var(--size-2);
+    cursor: pointer;
+  }
+
+  .eemayl-reveal:is(:hover, :focus) {
+    background: var(--gray-8);
+  }
+
+  .explanation {
+    margin-top: var(--size-1);
+    font-size: var(--font-size-00);
+  }
+
+  .social {
+    margin-top: var(--size-fluid-4);
+  }
+
+  h3 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--font-size-0);
+  }
+
+  .social ul {
+    margin-top: var(--size-1);
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--size-2);
+  }
+
+  .social a {
+    font-size: var(--font-size-4);
+    color: var(--color-text-light);
+  }
+</style>
