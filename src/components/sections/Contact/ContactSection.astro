@@ -46,7 +46,6 @@ import photo from "./photo.jpg";
 
   const btn = document.getElementById("eemayl-reveal")!;
   btn.addEventListener("click", (e) => {
-    console.log("clicked");
     const newLink = document.createElement("a");
     const replacementText = atob(replaceWith);
     newLink.text = replacementText;
@@ -121,11 +120,11 @@ import photo from "./photo.jpg";
     margin-top: var(--size-1);
     display: flex;
     flex-flow: row wrap;
-    gap: var(--size-2);
+    gap: var(--size-3);
   }
 
   .social a {
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-5);
     color: var(--color-text-light);
   }
 

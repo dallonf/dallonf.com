@@ -12,10 +12,10 @@ const { year, title, employer, logo } = Astro.props as Props;
 ---
 
 <li class="role">
-  <div class="year" aria-description="Year">{year}</div>
+  <div class="year" aria-label="Year">{year}</div>
   <h3 class="title">{title}</h3>
-  <div class="employer" aria-description="Employer">{employer}</div>
-  <img class="logo" src={logo} width="50" height="50" />
+  <div class="employer" aria-label="Employer">{employer}</div>
+  <img class="logo" src={logo} width="50" height="50" alt="" />
   <p><slot /></p>
 </li>
 
