@@ -1,0 +1,43 @@
+---
+import SectionContainer from "@components/SectionContainer.astro";
+import photo from "./photo.jpg";
+---
+
+<SectionContainer id="splash" padding={false}>
+  <div class="layout">
+    <img src={photo} alt="A photo of Dallon Feldner." width="276" height="224"
+    />
+    <h1>Dallon Feldner</h1>
+    <p class="subtitle">Senior Software Engineer</p>
+    <a class="button" href="#contact">Get in touch</a>
+  </div>
+</SectionContainer>
+
+<style>
+  .layout {
+    text-align: center;
+    padding-top: var(--size-fluid-5);
+    padding-bottom: var(--size-fluid-5);
+  }
+
+  h1 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+    font-size: var(--font-size-fluid-3);
+    margin-top: var(--size-fluid-2);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-fluid-2);
+  }
+
+  .button,
+  .button:is(:visited) {
+    display: inline-block;
+    color: var(--color-text-light);
+    text-decoration: none;
+    background: var(--color-bg-dark);
+    margin-top: var(--size-fluid-4);
+    padding: var(--size-fluid-2) var(--size-fluid-5);
+  }
+</style>
