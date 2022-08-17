@@ -24,9 +24,9 @@ const { skills } = Astro.props as Props;
     margin-top: var(--size-fluid-3);
     display: flex;
     flex-flow: row wrap;
-    column-gap: var(--size-fluid-5);
+    column-gap: var(--size-fluid-4);
     row-gap: var(--size-fluid-2);
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   .skill-entry {
@@ -37,7 +37,7 @@ const { skills } = Astro.props as Props;
   }
 
   .skill-entry > img {
-    block-size: var(--size-fluid-5);
+    block-size: var(--size-fluid-4);
   }
 
   .skill-name {
