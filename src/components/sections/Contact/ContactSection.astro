@@ -126,4 +126,45 @@ import photo from "./photo.jpg";
     font-size: var(--font-size-4);
     color: var(--color-text-light);
   }
+
+  @media (--md-n-above) {
+    .layout {
+      background-color: tomato;
+      max-width: var(--max-section-width);
+      display: grid;
+      grid:
+        "img . ." minmax(var(--size-fluid-4), 1fr)
+        "img . heading"
+        "img . ." minmax(var(--size-fluid-4), 1fr)
+        "img . contact-info"
+        "img . ." minmax(var(--size-fluid-4), 1fr)
+        "img . social"
+        "img . ." minmax(var(--size-fluid-4), 1fr)
+        / 30vh var(--size-fluid-4) 1fr;
+    }
+
+    img {
+      opacity: 0.5;
+      margin: 0;
+      grid-area: img;
+      object-fit: cover;
+      height: auto;
+      align-self: stretch;
+    }
+
+    h2 {
+      margin: 0;
+      grid-area: heading;
+    }
+
+    .contact-info {
+      margin: 0;
+      grid-area: contact-info;
+    }
+
+    .social {
+      margin: 0;
+      grid-area: social;
+    }
+  }
 </style>
