@@ -1,8 +1,9 @@
 ---
-import volusionImg from './volusion.jpg';
-import cmeImg from './cme.jpg';
-import teamFinderImg from './teamfinder.jpg';
-import SectionContainer from '@components/SectionContainer.astro';
+import { Image } from "@astrojs/image/components";
+import volusionImg from "./volusion.jpg";
+import cmeImg from "./cme.jpg";
+import teamFinderImg from "./teamfinder.jpg";
+import SectionContainer from "@components/SectionContainer.astro";
 ---
 
 <SectionContainer id="sample-work" bgColor="var(--color-bg-dark)">
@@ -10,27 +11,44 @@ import SectionContainer from '@components/SectionContainer.astro';
     <h2>Sample Work</h2>
     <ul class="sample-work-list">
       <li>
-        <img src={volusionImg} width="350" height="350" alt="A screenshot of a Volusion store." />
+        <Image
+          src={volusionImg}
+          height={350}
+          alt="A screenshot of a Volusion store."
+        />
         <h3>Volusion's Page Builder</h3>
         <p>
-          Improved performance, maintainability, and test coverage by gradually implementing a structured cache system.
+          Improved performance, maintainability, and test coverage by gradually
+          implementing a structured cache system.
         </p>
       </li>
       <li>
-        <img src={cmeImg} width="350" height="350" alt="A screenshot of Phunware's Content Management Engine portal." />
+        <Image
+          src={cmeImg}
+          height={350}
+          alt="A screenshot of Phunware's Content Management Engine portal."
+        />
         <h3>Phunware's Content Management Engine</h3>
         <p>
-          Led architecture of a UI revamp, reverse engineering the data model of a legacy product.
+          Led architecture of a UI revamp, reverse engineering the data model of
+          a legacy product.
         </p>
       </li>
       <li>
-        <img src={teamFinderImg} width="350" height="350" alt="A screenshot of the GMTK Game Jam 2022 Team Finder." />
+        <Image
+          src={teamFinderImg}
+          height={350}
+          alt="A screenshot of the GMTK Game Jam 2022 Team Finder."
+        />
         <h3>GMTK Game Jam Team Finder</h3>
         <p>
           Led UI architecture for an open source project with a volunteer team.
-
         </p>
-        <p><a href="https://github.com/GameMakersToolkit/team-finder">Check out the code!</a></p>
+        <p>
+          <a href="https://github.com/GameMakersToolkit/team-finder"
+            >Check out the code!
+          </a>
+        </p>
       </li>
     </ul>
   </div>
@@ -56,7 +74,7 @@ import SectionContainer from '@components/SectionContainer.astro';
     flex-direction: column;
   }
 
-  .sample-work-list>li {
+  .sample-work-list > li {
     font-size: var(--font-size-fluid-0);
     margin-left: auto;
     margin-right: auto;
@@ -64,17 +82,17 @@ import SectionContainer from '@components/SectionContainer.astro';
     max-inline-size: var(--size-header-3);
   }
 
-  .sample-work-list>li>img {
+  .sample-work-list > li > img {
     width: var(--size-header-1);
   }
 
-  .sample-work-list>li h3 {
+  .sample-work-list > li h3 {
     margin-top: var(--size-fluid-1);
     font-family: var(--accent-font);
     font-weight: bold;
   }
 
-  .sample-work-list>li p {
+  .sample-work-list > li p {
     margin-top: var(--size-fluid-1);
   }
 
@@ -91,7 +109,7 @@ import SectionContainer from '@components/SectionContainer.astro';
       justify-content: center;
     }
 
-    .sample-work-list>li {
+    .sample-work-list > li {
       max-inline-size: var(--size-header-2);
       font-size: var(--font-size-0);
       margin: 0;

@@ -1,5 +1,5 @@
 ---
-import '@fontsource/public-sans';
+import "@fontsource/public-sans";
 
 export interface Props {
   year: string;
@@ -15,21 +15,22 @@ const { year, title, employer, logo } = Astro.props as Props;
   <div class="year" aria-label="Year">{year}</div>
   <h3 class="title">{title}</h3>
   <div class="employer" aria-label="Employer">{employer}</div>
-  <img class="logo" src={logo} width="50" height="50" alt="" />
+  <img class="logo" src={logo} width={50} height={50} alt="" />
   <p><slot /></p>
 </li>
 
 <style>
   .role {
     display: grid;
-    grid: "year title logo"
+    grid:
+      "year title logo"
       "year employer logo"
       "year description description" / var(--size-fluid-6) 1fr;
   }
 
   .year {
     grid-area: year;
-    font-family: 'Public Sans', system-ui, sans-serif;
+    font-family: "Public Sans", system-ui, sans-serif;
     font-weight: bold;
   }
 

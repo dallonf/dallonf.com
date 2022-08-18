@@ -1,12 +1,12 @@
 ---
+import { Image } from "@astrojs/image/components";
 import SectionContainer from "@components/SectionContainer.astro";
 import photo from "./photo.jpg";
 ---
 
 <SectionContainer id="splash" padding={false}>
   <div class="layout">
-    <img src={photo} alt="A photo of Dallon Feldner." width="276" height="224"
-    />
+    <Image src={photo} alt="A photo of Dallon Feldner." width={300} />
     <div class="info">
       <h1>Dallon Feldner</h1>
       <p class="subtitle">Senior Software Engineer</p>

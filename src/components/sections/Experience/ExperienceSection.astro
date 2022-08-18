@@ -1,25 +1,46 @@
 ---
-import SectionContainer from "@components/SectionContainer.astro"
-import Role from './Role.astro';
-import volusionLogo from './volusion.svg';
-import phunwareLogo from './phunware.svg';
-import deploydLogo from './deployd.png';
+import { getImage } from "@astrojs/image";
+import SectionContainer from "@components/SectionContainer.astro";
+import Role from "./Role.astro";
+import volusionLogo from "./volusion.svg";
+import phunwareLogo from "./phunware.svg";
+import deploydLogoMeta from "./deployd.png";
+
+const deploydLogo = await getImage(deploydLogoMeta as any);
 ---
 
 <SectionContainer id="experience">
   <div class="layout">
     <h2>Relevant Experience</h2>
     <ul class="roles-list">
-      <Role year="2022" employer="Volusion" title="Senior Software Engineer" logo={volusionLogo}>
-        Led incremental refactoring of a complex page to improve performance and testability. Built GitHub Actions
-        workflows to automate key steps of deployment process. Mentored junior developers.
+      <Role
+        year="2022"
+        employer="Volusion"
+        title="Senior Software Engineer"
+        logo={volusionLogo}
+      >
+        Led incremental refactoring of a complex page to improve performance and
+        testability. Built GitHub Actions workflows to automate key steps of
+        deployment process. Mentored junior developers.
       </Role>
-      <Role year="2019" employer="Phunware" title="Software Engineer" logo={phunwareLogo}>
-        Led automated testing initiative over multiple codebases. Led adoption of GraphQL for custom CMS.
+      <Role
+        year="2019"
+        employer="Phunware"
+        title="Software Engineer"
+        logo={phunwareLogo}
+      >
+        Led automated testing initiative over multiple codebases. Led adoption
+        of GraphQL for custom CMS.
       </Role>
-      <Role year="2012" employer="Deployd" title="Developer" logo={deploydLogo}>
-        Developed front-end dashboard for backend-as-a-service. Wrote documentation and examples across multiple
-        front-end frameworks. Participated in architectural discussions and planning.
+      <Role
+        year="2012"
+        employer="Deployd"
+        title="Developer"
+        logo={deploydLogo.src!}
+      >
+        Developed front-end dashboard for backend-as-a-service. Wrote
+        documentation and examples across multiple front-end frameworks.
+        Participated in architectural discussions and planning.
       </Role>
     </ul>
   </div>

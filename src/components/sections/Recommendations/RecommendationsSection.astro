@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import SectionContainer from '@components/SectionContainer.astro';
 import paulImg from './paul.jpg';
 import johnImg from './john.jpg';
@@ -7,7 +8,7 @@ import johnImg from './john.jpg';
 <SectionContainer id="recommendations">
   <div class="layout">
     <div class="rec1 rec-bg" />
-    <img class="rec1 rec-img" src={paulImg} alt="Photo of Paul Clark" />
+    <Image class="rec1 rec-img" src={paulImg} alt="Photo of Paul Clark" />
     <div class="rec1 rec-text">
       <blockquote>&ldquo;Dallon is a top-tier front end engineer. He possesses fantastic attention to detail, is capable
         of
@@ -17,7 +18,7 @@ import johnImg from './john.jpg';
       <div class="role">VP of Engineering</div>
     </div>
     <div class="rec2 rec-bg" />
-    <img class="rec2 rec-img" src={johnImg} alt="Photo of John Smith Jr." />
+    <Image class="rec2 rec-img" src={johnImg} alt="Photo of John Smith Jr." />
     <div class="rec2 rec-text">
       <blockquote>&ldquo;I was always impressed with his attention to detail and ability to find quick, quality
         solutions to the challenges I gave to him. He&apos;s always considering the customer&apos;s / user&apos;s
