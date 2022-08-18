@@ -1,12 +1,17 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import SectionContainer from "@components/SectionContainer.astro";
 import photo from "./photo.jpg";
 ---
 
 <SectionContainer id="splash" padding={false}>
   <div class="layout">
-    <Image src={photo} alt="A photo of Dallon Feldner." width={300} />
+    <Picture
+      src={photo}
+      alt="A photo of Dallon Feldner."
+      widths={[1500, 1000, 680, 450, 300]}
+      sizes="(min-width: 768px) 50vw, 100vw"
+    />
     <div class="info">
       <h1>Dallon Feldner</h1>
       <p class="subtitle">Senior Software Engineer</p>
@@ -18,7 +23,6 @@ import photo from "./photo.jpg";
 <style>
   .layout {
     text-align: center;
-    padding-top: var(--size-fluid-5);
     padding-bottom: var(--size-fluid-5);
   }
 
@@ -51,9 +55,15 @@ import photo from "./photo.jpg";
       padding: 0;
     }
 
-    img {
-      object-fit: cover;
+    picture {
       align-self: stretch;
+      width: 100%;
+      display: flex;
+    }
+
+    picture :global(img) {
+      object-fit: cover;
+      height: auto;
       width: 100%;
     }
 

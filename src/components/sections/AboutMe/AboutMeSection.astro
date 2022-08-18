@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import SectionContainer from "@components/SectionContainer.astro";
 import photo from "./photo.jpg";
 import AboutText from "./AboutText.md";
@@ -8,7 +8,12 @@ import AboutText from "./AboutText.md";
 <SectionContainer id="about-me" bgColor="var(--color-bg-tan)">
   <div class="size-constraint">
     <div class="layout">
-      <Image src={photo} alt="A photo of myself." />
+      <Picture
+        src={photo}
+        alt="A photo of myself."
+        widths={[1500, 1000, 680, 450, 300]}
+        sizes="50vw"
+      />
       <h2>About Me</h2>
       <div class="content">
         <AboutText />
@@ -23,7 +28,7 @@ import AboutText from "./AboutText.md";
     margin-right: var(--size-fluid-2);
   }
 
-  img {
+  picture {
     display: none;
   }
 
@@ -62,7 +67,7 @@ import AboutText from "./AboutText.md";
       column-gap: var(--size-fluid-4);
     }
 
-    img {
+    picture {
       display: block;
       grid-area: img;
       width: 25rem;

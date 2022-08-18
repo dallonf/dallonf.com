@@ -1,29 +1,45 @@
 ---
-import { Image } from "@astrojs/image/components";
-import SectionContainer from '@components/SectionContainer.astro';
-import paulImg from './paul.jpg';
-import johnImg from './john.jpg';
+import { Picture } from "@astrojs/image/components";
+import SectionContainer from "@components/SectionContainer.astro";
+import paulImg from "./paul.jpg";
+import johnImg from "./john.jpg";
 ---
 
 <SectionContainer id="recommendations">
   <div class="layout">
-    <div class="rec1 rec-bg" />
-    <Image class="rec1 rec-img" src={paulImg} alt="Photo of Paul Clark" />
+    <div class="rec1 rec-bg"></div>
+    <Picture
+      class="rec1 rec-img"
+      src={paulImg}
+      alt="Photo of Paul Clark"
+      widths={[400, 300, 200, 100]}
+      sizes={"18rem"}
+    />
     <div class="rec1 rec-text">
-      <blockquote>&ldquo;Dallon is a top-tier front end engineer. He possesses fantastic attention to detail, is capable
-        of
-        thinking through complicated use cases and edge cases, and is happy to share his opinion and speak up in the
-        name of the best user experience.&rdquo;</blockquote>
+      <blockquote>
+        &ldquo;Dallon is a top-tier front end engineer. He possesses fantastic
+        attention to detail, is capable of thinking through complicated use
+        cases and edge cases, and is happy to share his opinion and speak up in
+        the name of the best user experience.&rdquo;
+      </blockquote>
       <div class="author">Paul Clark</div>
       <div class="role">VP of Engineering</div>
     </div>
-    <div class="rec2 rec-bg" />
-    <Image class="rec2 rec-img" src={johnImg} alt="Photo of John Smith Jr." />
+    <div class="rec2 rec-bg"></div>
+    <Picture
+      class="rec2 rec-img"
+      src={johnImg}
+      alt="Photo of John Smith Jr."
+      widths={[400, 300, 200, 100]}
+      sizes={"18rem"}
+    />
     <div class="rec2 rec-text">
-      <blockquote>&ldquo;I was always impressed with his attention to detail and ability to find quick, quality
-        solutions to the challenges I gave to him. He&apos;s always considering the customer&apos;s / user&apos;s
-        needs when looking at
-        options and comes prepared with the trade-offs.&rdquo;</blockquote>
+      <blockquote>
+        &ldquo;I was always impressed with his attention to detail and ability
+        to find quick, quality solutions to the challenges I gave to him.
+        He&apos;s always considering the customer&apos;s / user&apos;s needs
+        when looking at options and comes prepared with the trade-offs.&rdquo;
+      </blockquote>
       <div class="author">John Smith Jr.</div>
       <div class="role">Product Manager</div>
     </div>
@@ -42,7 +58,7 @@ import johnImg from './john.jpg';
     margin-top: var(--size-fluid-3);
     margin-left: auto;
     margin-right: auto;
-    block-size: 18rem;
+    width: 12em;
   }
 
   .rec-text {
@@ -96,7 +112,11 @@ import johnImg from './john.jpg';
 
   @media (--lg-n-above) {
     .layout {
-      grid: [start] "image1 text1 text1" min-content [top2] ". . ." var(--size-fluid-2) [bottom1] "text2 text2 image2" min-content [end] / [start] auto [start1] auto [end2] auto [end];
+      grid:
+        [start] "image1 text1 text1" min-content [top2] ". . ." var(
+          --size-fluid-2
+        )
+        [bottom1] "text2 text2 image2" min-content [end] / [start] auto [start1] auto [end2] auto [end];
       padding-left: var(--size-fluid-2);
       padding-right: var(--size-fluid-2);
       justify-content: center;
@@ -106,8 +126,13 @@ import johnImg from './john.jpg';
       margin: 0;
       width: 100%;
       height: 100%;
+      display: flex;
+    }
+
+    .rec-img :global(img) {
       object-fit: cover;
-      min-height: 18rem;
+      width: 100%;
+      height: 100%;
     }
 
     .rec-text {

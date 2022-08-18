@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import SectionContainer from "@components/SectionContainer.astro";
 import photo from "./photo.jpg";
 ---
@@ -8,7 +8,7 @@ import photo from "./photo.jpg";
   <div class="sizing-container">
     <div class="layout">
       <h2>Get in touch</h2>
-      <Image src={photo} alt="A photo of Dallon being a bit silly" width={400}
+      <Picture src={photo} alt="A photo of Dallon being a bit silly" sizes={"(min-width: 758px) 50vw, 100vw"} widths={[1500, 1000, 600, 400, 200]}
       />
       <div class="contact-info">
         <div class="name">Dallon Feldner</div>
@@ -66,7 +66,7 @@ import photo from "./photo.jpg";
     font-size: var(--font-size-fluid-1);
   }
 
-  img {
+  picture {
     margin-top: var(--size-fluid-1);
   }
 
@@ -147,12 +147,17 @@ import photo from "./photo.jpg";
         / 30vh var(--size-fluid-4) 1fr;
     }
 
-    img {
+    picture {
       margin: 0;
       grid-area: img;
+      align-self: stretch;
+      display: flex;
+    }
+
+    picture :global(img) {
       object-fit: cover;
       height: auto;
-      align-self: stretch;
+      width: 100%;
     }
 
     h2 {
