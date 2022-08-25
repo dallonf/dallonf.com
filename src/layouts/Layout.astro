@@ -61,4 +61,15 @@ const description = load(await AboutText.compiledContent()).text().replaceAll('\
 	body {
 		margin: 0;
 	}
+
+	:global(img) {
+		display: inline-flex;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+	}
+
+	:global(img):-moz-loading {
+		color: transparent;
+	}
 </style>
