@@ -44,7 +44,12 @@ import photo from "./photo.jpg";
     text-decoration: none;
     background: var(--color-bg-dark);
     margin-top: var(--size-fluid-4);
-    padding: var(--size-fluid-2) var(--size-fluid-5);
+    padding: var(--size-fluid-2);
+  }
+
+  picture :global(img) {
+    object-fit: cover;
+    max-height: 60vh;
   }
 
   @media (--md-n-above) {
@@ -64,6 +69,7 @@ import photo from "./photo.jpg";
     picture :global(img) {
       object-fit: cover;
       height: auto;
+      max-height: 100vh;
       width: 100%;
     }
 
@@ -91,6 +97,11 @@ import photo from "./photo.jpg";
 
     .subtitle {
       font-size: var(--font-size-fluid-2);
+    }
+
+    .button {
+      padding-left: var(--size-fluid-5);
+      padding-right: var(--size-fluid-5);
     }
   }
 </style>
