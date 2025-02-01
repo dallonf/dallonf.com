@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
 import SectionContainer from "@components/SectionContainer.astro";
 import photo from "./photo.jpg";
 ---
@@ -42,7 +42,7 @@ import photo from "./photo.jpg";
   const replaceWith = "ZGFsbG9uZmRldkBnbWFpbC5jb20=";
 
   const btn = document.getElementById("eemayl-reveal")!;
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener("click", () => {
     const newLink = document.createElement("a");
     const replacementText = atob(replaceWith);
     newLink.text = replacementText;

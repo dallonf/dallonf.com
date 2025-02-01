@@ -1,8 +1,6 @@
-import { getImage } from "@astrojs/image";
-
 export async function lookupSkillsList(
   skills: [string, string][],
-  iconsGlob: Record<string, () => Promise<unknown>>
+  iconsGlob: Record<string, () => Promise<{ default: ImageMetadata }>>
 ): Promise<
   {
     name: string;
@@ -11,18 +9,10 @@ export async function lookupSkillsList(
 > {
   return Promise.all(
     skills.map(async ([name, iconFile]) => {
-      const iconMeta: unknown = (
-        (await iconsGlob[`./logos/${iconFile}`]()) as any
-      ).default;
-      let iconUrl;
-      if (iconFile.endsWith(".svg")) {
-        iconUrl = iconMeta as string;
-      } else {
-        iconUrl = (await getImage(iconMeta as any)).src!;
-      }
+      const iconMeta = (await iconsGlob[`./logos/${iconFile}`]()).default;
       return {
         name,
-        iconUrl,
+        iconUrl: iconMeta.src,
       };
     })
   );

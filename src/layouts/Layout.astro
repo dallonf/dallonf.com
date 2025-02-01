@@ -1,75 +1,78 @@
 ---
-import '@fontsource/clear-sans';
-import '@fontsource/dm-sans';
-import 'minireset.css/minireset.css';
-import 'open-props/style';
-import * as AboutText from '@components/sections/AboutMe/AboutText.md';
-import { load } from 'cheerio';
+import "@fontsource/clear-sans";
+import "@fontsource/dm-sans";
+import "minireset.css/minireset.css";
+import "open-props/style";
+import * as AboutText from "@components/sections/AboutMe/AboutText.md";
+import { load } from "cheerio";
 
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props as Props;
 
-const description = load(await AboutText.compiledContent()).text().replaceAll('\n', ' ');
-
+const description = load(AboutText.compiledContent())
+  .text()
+  .replaceAll("\n", " ");
 ---
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <script
+      is:inline
+      src="https://kit.fontawesome.com/18ceba3ea2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<meta name="generator" content={Astro.generator} />
-	<meta name="description" content={description} />
-	<title>{title}</title>
-	<script src="https://kit.fontawesome.com/18ceba3ea2.js" crossorigin="anonymous"></script>
-</head>
+  <body>
+    <slot />
+    <style>
+      :root {
+        --main-font: "DM Sans", system-ui, sans-serif;
+        --accent-font: "Clear Sans", system-ui, sans-serif;
+        --color-text-dark: var(--gray-9);
+        --color-text-darkish: var(--gray-7);
+        --color-text-light: var(--gray-0);
+        --color-bg-dark: var(--gray-8);
+        --color-bg-light: var(--gray-0);
+        --color-bg-tan: #b4b0ab;
 
-<body>
-	<slot />
-</body>
+        --section-height: 50vh;
+        --max-section-width: 80rem;
+      }
 
+      html {
+        font-family: var(--main-font);
+        font-size: var(--font-size-fluid-1);
+        color: var(--color-text-dark);
+        background-color: var(--color-bg-light);
+      }
+
+      body {
+        margin: 0;
+      }
+
+      :global(img) {
+        display: inline-flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+
+      :global(img):-moz-loading {
+        color: transparent;
+      }
+    </style>
+  </body>
 </html>
-<style>
-	:root {
-		--main-font: 'DM Sans', system-ui, sans-serif;
-		--accent-font: 'Clear Sans', system-ui, sans-serif;
-		--color-text-dark: var(--gray-9);
-		--color-text-darkish: var(--gray-7);
-		--color-text-light: var(--gray-0);
-		--color-bg-dark: var(--gray-8);
-		--color-bg-light: var(--gray-0);
-		--color-bg-tan: #b4b0ab;
-
-		--section-height: 50vh;
-		--max-section-width: 80rem;
-	}
-
-	html {
-		font-family: var(--main-font);
-		font-size: var(--font-size-fluid-1);
-		color: var(--color-text-dark);
-		background-color: var(--color-bg-light);
-	}
-
-	body {
-		margin: 0;
-	}
-
-	:global(img) {
-		display: inline-flex;
-		text-align: center;
-		align-items: center;
-		justify-content: center;
-	}
-
-	:global(img):-moz-loading {
-		color: transparent;
-	}
-</style>
