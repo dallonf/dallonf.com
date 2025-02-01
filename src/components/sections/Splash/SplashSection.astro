@@ -47,7 +47,7 @@ import photo from "./photo.jpg";
     padding: var(--size-fluid-2);
   }
 
-  img {
+  picture :global(img) {
     object-fit: cover;
     max-height: 60vh;
   }
@@ -60,13 +60,13 @@ import photo from "./photo.jpg";
       padding: 0;
     }
 
-    .layout > :global(picture) {
+    picture {
       align-self: stretch;
       width: 100%;
       display: flex;
     }
 
-    img {
+    picture :global(img) {
       object-fit: cover;
       height: auto;
       max-height: 100vh;
