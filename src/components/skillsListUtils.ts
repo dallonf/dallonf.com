@@ -1,6 +1,6 @@
 export async function lookupSkillsList(
   skills: [string, string][],
-  iconsGlob: Record<string, () => Promise<{ default: ImageMetadata }>>
+  iconsGlob: Record<string, () => Promise<{ default: ImageMetadata }>>,
 ): Promise<
   {
     name: string;
@@ -14,6 +14,6 @@ export async function lookupSkillsList(
         name,
         iconUrl: iconMeta.src,
       };
-    })
+    }),
   );
 }
