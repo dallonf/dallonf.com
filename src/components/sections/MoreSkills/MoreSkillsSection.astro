@@ -3,7 +3,7 @@ import SectionContainer from "@components/SectionContainer.astro";
 import SkillsList from "@components/SkillsList.astro";
 import { lookupSkillsList } from "@components/skillsListUtils";
 
-const icons = import.meta.glob("./logos/*.{svg,png}");
+const icons = import.meta.glob<{ default: ImageMetadata }>("./logos/*.{svg,png}");
 
 const skillsList = await lookupSkillsList(
   [
