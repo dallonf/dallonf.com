@@ -1,4 +1,6 @@
 ---
+import {reactYears} from '@logic/years-experience';
+
 const ecosystemOverflow = [
   "MobX",
   "Create React App",
@@ -29,7 +31,7 @@ function opacity(index: number) {
 }
 ---
 
-<h3><span class="exp-highlight">7+</span> years of React</h3>
+<h3><span class="exp-highlight">{reactYears()}+</span> years of React</h3>
 <div class="layout">
   <div class="then-and-now then">
     <h4>Then...</h4>

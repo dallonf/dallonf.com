@@ -25,6 +25,7 @@
     "@fontsource/dm-sans": "^5.1.1",
     "cheerio": "^1.0.0",
     "minireset.css": "^0.0.7",
-    "open-props": "^1.7.12"
+    "open-props": "^1.7.12",
+    "temporal-polyfill": "^0.2.5"
   }
 }
