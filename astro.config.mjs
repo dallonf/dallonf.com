@@ -15,5 +15,4 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkYearsExperience],
   },
-  scopedStyleStrategy: "where",
 });
