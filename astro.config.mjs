@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import remarkYearsExperience from "./src/logic/years-experience-remark-plugin";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +11,9 @@ export default defineConfig({
         "@fontsource/dm-sans",
       ],
     },
+  },
+  markdown: {
+    remarkPlugins: [remarkYearsExperience],
   },
   scopedStyleStrategy: "where",
 });
