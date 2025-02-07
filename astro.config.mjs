@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import remarkYearsExperience from "./src/logic/years-experience-remark-plugin";
 
+import svelte from "@astrojs/svelte";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -12,7 +14,10 @@ export default defineConfig({
       ],
     },
   },
+
   markdown: {
     remarkPlugins: [remarkYearsExperience],
   },
+
+  integrations: [svelte()],
 });

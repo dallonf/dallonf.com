@@ -1,63 +1,9 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro";
+import CareerSectionInteractive from "./CareerSectionInteractive.svelte";
 import "vis-timeline/styles/vis-timeline-graph2d.min.css";
 ---
 
 <SectionContainer id="career">
-  <div>
-    hi
-    <div id="timeline"></div>
-  </div>
+  <CareerSectionInteractive client:visible client:idle />
 </SectionContainer>
-
-<script>
-  // const idlePromise = new Promise((resolve) => requestIdleCallback(resolve));
-  // const visiblePromise = new Promise(resolve => {
-  //   const observer = new IntersectionObserver()
-  // });
-
-  const timelinePromise = import("vis-timeline/esnext").then(
-    (mod) => mod.Timeline
-  );
-
-  const depsPromise = (async () => {
-    const timelinePromise = import("vis-timeline/esnext");
-    const temporalPromise = import("temporal-polyfill");
-    return {
-      Timeline: (await timelinePromise).Timeline,
-      ...(await temporalPromise),
-    };
-  })();
-
-  depsPromise.then(({ Timeline, Temporal }) => {
-    const today = Temporal.Now.plainDateISO();
-
-    const timeline = new Timeline(
-      document.getElementById("career")!,
-      [
-        { content: "Sibi", start: "2022-09-01", end: today.toString() },
-        {
-          content: "Volusion",
-          start: "2020-11-01",
-          end: "2022-06-01",
-        },
-        {
-          content: "RigUp",
-          start: "2019-06-01",
-          end: "2020-01-01",
-        },
-        {
-          content: "Phunware",
-          start: "2016-06-01",
-          end: "2019-04-01",
-        },
-        {
-          content: "Nuve",
-          start: "2015-08-01",
-          end: "2016-05-01",
-        },
-      ],
-      {}
-    );
-  });
-</script>
