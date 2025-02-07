@@ -29,6 +29,7 @@
     "minireset.css": "^0.0.7",
     "open-props": "^1.7.12",
     "remark": "^15.0.1",
-    "temporal-polyfill": "^0.2.5"
+    "temporal-polyfill": "^0.2.5",
+    "vis-timeline": "^7.7.3"
   }
 }

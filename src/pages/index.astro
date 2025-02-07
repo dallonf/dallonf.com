@@ -8,6 +8,7 @@ import MoreSkillsSection from "@components/sections/MoreSkills/MoreSkillsSection
 import SampleWorkSection from "@components/sections/SampleWork/SampleWorkSection.astro";
 import RecommendationsSection from "@components/sections/Recommendations/RecommendationsSection.astro";
 import ContactSection from "@components/sections/Contact/ContactSection.astro";
+import CareerSection from "@components/sections/Career/CareerSection.astro";
 ---
 
 <Layout
@@ -16,6 +17,7 @@ import ContactSection from "@components/sections/Contact/ContactSection.astro";
   <main>
     <SplashSection />
     <AboutMeSection />
+    <CareerSection client:idle />
     <ExperienceSection />
     <SkillsSection />
     <MoreSkillsSection />
