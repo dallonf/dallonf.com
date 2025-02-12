@@ -20,4 +20,8 @@ export default defineConfig({
   },
 
   integrations: [svelte()],
+
+  experimental: {
+    contentIntellisense: true,
+  },
 });

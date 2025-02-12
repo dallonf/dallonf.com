@@ -1,9 +1,12 @@
 ---
+import { getCollection } from "astro:content";
 import SectionContainer from "@components/SectionContainer.astro";
 import CareerSectionInteractive from "./CareerSectionInteractive.svelte";
 import "vis-timeline/styles/vis-timeline-graph2d.min.css";
+
+const jobs = await getCollection("jobs");
 ---
 
 <SectionContainer id="career">
-  <CareerSectionInteractive client:visible client:idle />
+  <CareerSectionInteractive client:visible client:idle {jobs} />
 </SectionContainer>

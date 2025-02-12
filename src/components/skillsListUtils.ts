@@ -1,6 +1,8 @@
+import { assert } from "@logic/assert";
+
 export async function lookupSkillsList(
   skills: [string, string][],
-  iconsGlob: Record<string, () => Promise<{ default: ImageMetadata }>>,
+  iconsGlob: Record<string, () => Promise<{ default: ImageMetadata }>>
 ): Promise<
   {
     name: string;
@@ -9,11 +11,13 @@ export async function lookupSkillsList(
 > {
   return Promise.all(
     skills.map(async ([name, iconFile]) => {
-      const iconMeta = (await iconsGlob[`./logos/${iconFile}`]()).default;
+      const importLogo = iconsGlob[`./logos/${iconFile}`];
+      assert(importLogo);
+      const iconMeta = (await importLogo()).default;
       return {
         name,
         iconUrl: iconMeta.src,
       };
-    }),
+    })
   );
 }

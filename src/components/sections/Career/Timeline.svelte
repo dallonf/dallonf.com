@@ -8,7 +8,7 @@
 
   interface Props {
     events: DataItemCollectionType;
-    selectedEventId?: string;
+    selectedEventId?: string | undefined;
   }
 
   let { events, selectedEventId = $bindable() }: Props = $props();
