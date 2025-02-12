@@ -17,7 +17,11 @@
   let timeline = $state<Timeline>();
 
   onMount(() => {
-    timeline = new Timeline(container!, events, {});
+    timeline = new Timeline(container!, events, {
+      end: new Date(),
+      max: new Date(),
+      min: new Date("2008-01-01"),
+    });
 
     const handleSelect = ({ items }: { items: IdType[] }) => {
       selectedEventId = items[0] as string | undefined;

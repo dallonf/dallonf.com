@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { CollectionEntry } from "astro:content";
-  import { Temporal } from "temporal-polyfill";
   import Timeline from "./Timeline.svelte";
   import type { DataItemCollectionType } from "vis-timeline";
 
@@ -10,14 +9,11 @@
 
   let { jobs }: Props = $props();
 
-  const today = Temporal.Now.plainDateISO();
-
   let events: DataItemCollectionType = $derived(
     jobs.map((job) => ({
       id: job.id,
       content: job.data.name,
       start: job.data.start,
-      end: job.data.end ?? today.toString(),
     }))
   );
 
