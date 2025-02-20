@@ -1,7 +1,21 @@
+<script lang="ts" module>
+  import { untrack } from "svelte";
+  let prevId = $state(0);
+
+  function nextA11yId() {
+    return untrack(() => {
+      prevId += 1;
+      return prevId;
+    });
+  }
+</script>
+
 <script lang="ts">
   import type { CollectionEntry } from "astro:content";
   import Timeline from "./Timeline.svelte";
   import type { DataItemCollectionType } from "vis-timeline";
+
+  const a11yId = nextA11yId();
 
   interface Props {
     jobs: CollectionEntry<"jobs">[];
@@ -18,17 +32,20 @@
   );
 
   let selectedEventId: string | undefined = $state("2022-sibi");
-
-  let selectedEvent = $derived(
-    selectedEventId ? jobs.find((it) => it.id === selectedEventId) : undefined
-  );
 </script>
 
 <Timeline {events} bind:selectedEventId />
-{#if selectedEvent}
-  <div>
-    <h2>{selectedEvent.data.name}</h2>
-    {#if selectedEvent.data.title}<div>{selectedEvent.data.title}</div>{/if}
-    {@html selectedEvent.rendered?.html}
-  </div>
-{/if}
+<div>
+  {#each jobs as job (job.id)}
+    {@const headerId = `job-${job.id}-${a11yId}`}
+    <div
+      role="region"
+      hidden={selectedEventId !== job.id}
+      aria-labelledby={headerId}
+    >
+      <h2 id={headerId}>{job.data.name}</h2>
+      {#if job.data.title}<div>{job.data.title}</div>{/if}
+      {@html job.rendered?.html}
+    </div>
+  {/each}
+</div>
