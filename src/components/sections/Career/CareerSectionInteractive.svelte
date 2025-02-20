@@ -31,21 +31,48 @@
     }))
   );
 
-  let selectedEventId: string | undefined = $state("2022-sibi");
+  let selectedEventId: string = $state("2022-sibi");
 </script>
 
-<Timeline {events} bind:selectedEventId />
-<div>
-  {#each jobs as job (job.id)}
-    {@const headerId = `job-${job.id}-${a11yId}`}
-    <div
-      role="region"
-      hidden={selectedEventId !== job.id}
-      aria-labelledby={headerId}
-    >
-      <h2 id={headerId}>{job.data.name}</h2>
-      {#if job.data.title}<div>{job.data.title}</div>{/if}
-      {@html job.rendered?.html}
-    </div>
-  {/each}
+<div class="layout">
+  <h2>Career History</h2>
+  <div class="timeline-container">
+    <Timeline {events} bind:selectedEventId />
+  </div>
+  <div class="description-container">
+    {#each jobs as job (job.id)}
+      {@const headerId = `job-${job.id}-${a11yId}`}
+      <div
+        role="region"
+        hidden={selectedEventId !== job.id}
+        aria-labelledby={headerId}
+      >
+        <h3 id={headerId}>{job.data.name}</h3>
+        {#if job.data.title}<div>{job.data.title}</div>{/if}
+        {@html job.rendered?.html}
+      </div>
+    {/each}
+  </div>
 </div>
+
+<style>
+  .layout {
+    flex: 1;
+    align-self: stretch;
+    padding-left: var(--size-fluid-2);
+    padding-right: var(--size-fluid-2);
+    padding-top: var(--size-fluid-2);
+    padding-bottom: var(--size-fluid-2);
+  }
+
+  h2 {
+    font-family: var(--accent-font);
+    font-weight: bold;
+    font-size: var(--font-size-fluid-2);
+    margin-bottom: var(--size-fluid-2);
+  }
+
+  .timeline-container {
+    margin-bottom: var(--size-fluid-2);
+  }
+</style>

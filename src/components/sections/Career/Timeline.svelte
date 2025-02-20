@@ -8,7 +8,7 @@
 
   interface Props {
     events: DataItemCollectionType;
-    selectedEventId?: string | undefined;
+    selectedEventId: string;
   }
 
   let { events, selectedEventId = $bindable() }: Props = $props();
@@ -21,10 +21,15 @@
       end: new Date(),
       max: new Date(),
       min: new Date("2008-01-01"),
+      minHeight: "140px",
     });
 
     const handleSelect = ({ items }: { items: IdType[] }) => {
-      selectedEventId = items[0] as string | undefined;
+      if (items.length > 0) {
+        selectedEventId = items[0] as string;
+      } else {
+        timeline?.setSelection(selectedEventId);
+      }
     };
     timeline.on("select", handleSelect);
 

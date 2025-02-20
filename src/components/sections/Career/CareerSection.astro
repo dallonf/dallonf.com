@@ -7,6 +7,6 @@ import "vis-timeline/styles/vis-timeline-graph2d.min.css";
 const jobs = await getCollection("jobs");
 ---
 
-<SectionContainer id="career">
+<SectionContainer id="career" padding={false}>
   <CareerSectionInteractive client:visible client:idle {jobs} />
 </SectionContainer>
