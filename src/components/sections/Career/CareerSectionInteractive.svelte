@@ -12,8 +12,9 @@
 
 <script lang="ts">
   import type { CollectionEntry } from "astro:content";
-  import Timeline from "./Timeline.svelte";
   import type { DataItemCollectionType } from "vis-timeline";
+  import Timeline from "./Timeline.svelte";
+  import Role from "./Role.svelte";
 
   const a11yId = nextA11yId();
 
@@ -47,9 +48,14 @@
         hidden={selectedEventId !== job.id}
         aria-labelledby={headerId}
       >
-        <h3 id={headerId}>{job.data.name}</h3>
-        {#if job.data.title}<div>{job.data.title}</div>{/if}
-        {@html job.rendered?.html}
+        <Role
+          title={job.data.title}
+          employer={job.data.name}
+          year={job.data.start}
+          logo={job.data.logo?.src}
+        >
+          {@html job.rendered?.html}
+        </Role>
       </div>
     {/each}
   </div>

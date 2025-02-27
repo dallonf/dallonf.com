@@ -6,15 +6,17 @@ const jobs = defineCollection({
     pattern: "*.md",
     base: "src/data/jobs",
   }),
-  schema: z.object({
-    start: z.string().regex(/[0-9]{4}-[0-9]{2}/),
-    end: z
-      .string()
-      .regex(/[0-9]{4}-[0-9]{2}/)
-      .optional(),
-    name: z.string(),
-    title: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      start: z.string().regex(/[0-9]{4}-[0-9]{2}/),
+      end: z
+        .string()
+        .regex(/[0-9]{4}-[0-9]{2}/)
+        .optional(),
+      name: z.string(),
+      title: z.string(),
+      logo: image().optional(),
+    }),
 });
 
 export const collections = { jobs };
