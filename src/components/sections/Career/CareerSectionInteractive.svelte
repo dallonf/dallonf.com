@@ -13,6 +13,7 @@
 <script lang="ts">
   import type { CollectionEntry } from "astro:content";
   import type { DataItemCollectionType } from "vis-timeline";
+  import { Temporal } from "temporal-polyfill";
   import Timeline from "./Timeline.svelte";
   import Role from "./Role.svelte";
 
@@ -28,7 +29,7 @@
     jobs.map((job) => ({
       id: job.id,
       content: job.data.name,
-      start: job.data.start,
+      start: job.data.start.toString(),
     }))
   );
 
@@ -51,7 +52,10 @@
         <Role
           title={job.data.title}
           employer={job.data.name}
-          year={job.data.start}
+          start={Temporal.PlainYearMonth.from(job.data.start)}
+          end={job.data.end != null
+            ? Temporal.PlainYearMonth.from(job.data.end)
+            : undefined}
           logo={job.data.logo?.src}
         >
           {@html job.rendered?.html}
