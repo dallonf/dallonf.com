@@ -76,11 +76,19 @@
       }}
     />
   </div>
-  <div class="description-container">
+  <div
+    class={[
+      "description-container",
+      {
+        "show-single": timelineLoaded,
+      },
+    ]}
+  >
     {#each jobsInOrder as job (job.id)}
       {@const headerId = `job-${job.id}-${a11yId}`}
       <div
         role="region"
+        class="job"
         hidden={timelineLoaded && selectedEventId !== job.id}
         aria-labelledby={headerId}
       >
@@ -131,6 +139,19 @@
     display: flex;
     flex-direction: column;
     gap: var(--size-fluid-3);
+    &.show-single {
+      display: grid;
+
+      > .job {
+        grid-row: 1;
+        grid-column: 1;
+      }
+
+      > .job[hidden] {
+        display: block;
+        visibility: hidden;
+      }
+    }
   }
 
   .controls-container {
