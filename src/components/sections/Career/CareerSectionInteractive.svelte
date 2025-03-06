@@ -178,4 +178,32 @@
   .next-btn {
     text-align: right;
   }
+
+  @media (--md-n-above) {
+    .layout {
+      max-inline-size: var(--max-section-width);
+      align-self: center;
+      display: grid;
+      grid-template-areas: "heading jobs" ". controls" "timeline timeline";
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto auto auto 1fr;
+    }
+
+    h2 {
+      grid-area: heading;
+    }
+
+    .description-container {
+      grid-area: jobs;
+    }
+
+    .controls-container {
+      grid-area: controls;
+    }
+
+    .timeline-container {
+      margin-top: var(--size-fluid-4);
+      grid-area: timeline;
+    }
+  }
 </style>
