@@ -67,15 +67,20 @@
       border-color: var(--color-bg-tan);
     }
 
+    :global(.vis-item.vis-selected) {
+      background-color: var(--color-bg-blue);
+      border-color: var(--color-bg-blue);
+      color: var(--color-text-light);
+    }
+
     :global(.vis-item.vis-box) {
       border-radius: 0;
       padding-left: var(--size-1);
       padding-right: var(--size-1);
     }
-    :global(.vis-item.vis-selected) {
-      background-color: var(--color-bg-blue);
-      border-color: var(--color-bg-blue);
-      color: var(--color-text-light);
+
+    :global(.vis-line) {
+      border-left-width: 2px;
     }
   }
 </style>
