@@ -51,4 +51,28 @@
   });
 </script>
 
-<div bind:this={container}></div>
+<div class="timeline" bind:this={container}></div>
+
+<style>
+  .timeline {
+    :global(.vis-timeline) {
+      border: none;
+    }
+
+    :global(.vis-item) {
+      background-color: var(--color-bg-tan);
+      border-color: var(--color-bg-tan);
+    }
+
+    :global(.vis-item.vis-box) {
+      border-radius: 0;
+      padding-left: var(--size-1);
+      padding-right: var(--size-1);
+    }
+    :global(.vis-item.vis-selected) {
+      background-color: var(--color-bg-blue);
+      border-color: var(--color-bg-blue);
+      color: var(--color-text-light);
+    }
+  }
+</style>
