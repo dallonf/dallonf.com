@@ -9,9 +9,10 @@
   interface Props {
     events: DataItemCollectionType;
     selectedEventId: string;
+    onLoaded: () => void;
   }
 
-  let { events, selectedEventId = $bindable() }: Props = $props();
+  let { events, selectedEventId = $bindable(), onLoaded }: Props = $props();
 
   let container = $state<HTMLDivElement>();
   let timeline = $state<Timeline>();
@@ -32,6 +33,8 @@
       }
     };
     timeline.on("select", handleSelect);
+
+    onLoaded();
 
     return () => {
       timeline?.off("select", handleSelect);

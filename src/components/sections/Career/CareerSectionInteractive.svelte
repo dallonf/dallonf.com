@@ -25,6 +25,18 @@
 
   let { jobs }: Props = $props();
 
+  let timelineLoaded = $state(false);
+
+  let jobsInOrder = $derived(
+    jobs
+      .toSorted((a, b) => {
+        const aStart = Temporal.PlainYearMonth.from(a.data.start);
+        const bStart = Temporal.PlainYearMonth.from(b.data.start);
+        return Temporal.PlainYearMonth.compare(aStart, bStart);
+      })
+      .toReversed()
+  );
+
   let events: DataItemCollectionType = $derived(
     jobs.map((job) => ({
       id: job.id,
@@ -39,14 +51,20 @@
 <div class="layout">
   <h2>Career History</h2>
   <div class="timeline-container">
-    <Timeline {events} bind:selectedEventId />
+    <Timeline
+      {events}
+      bind:selectedEventId
+      onLoaded={() => {
+        timelineLoaded = true;
+      }}
+    />
   </div>
   <div class="description-container">
-    {#each jobs as job (job.id)}
+    {#each jobsInOrder as job (job.id)}
       {@const headerId = `job-${job.id}-${a11yId}`}
       <div
         role="region"
-        hidden={selectedEventId !== job.id}
+        hidden={timelineLoaded && selectedEventId !== job.id}
         aria-labelledby={headerId}
       >
         <Role
@@ -84,5 +102,11 @@
 
   .timeline-container {
     margin-bottom: var(--size-fluid-2);
+  }
+
+  .description-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-fluid-3);
   }
 </style>
