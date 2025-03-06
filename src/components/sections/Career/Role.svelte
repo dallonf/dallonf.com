@@ -52,14 +52,17 @@
 </script>
 
 <li class="role">
-  <div class="when" aria-label="When">
-    {formatMonthYear(start)}
-    -
-    {#if end}{formatMonthYear(end)}{:else}Present{/if}
-  </div>
   <h3 class="title">{title}</h3>
-  <div class="employer" aria-label="Employer">
-    {employer}
+  <div class="subheading">
+    <div class="employer" aria-label="Employer">
+      {employer}
+    </div>
+    <div>&dot;</div>
+    <div class="when" aria-label="When">
+      {formatMonthYear(start)}
+      -
+      {#if end}{formatMonthYear(end)}{:else}Present{/if}
+    </div>
   </div>
   {#if logo}
     <img class="logo" src={logo} width={50} height={50} alt="" />
@@ -71,15 +74,9 @@
   .role {
     display: grid;
     grid:
-      "when title logo"
-      "when employer logo"
-      "when description description" / var(--size-fluid-6) 1fr;
-  }
-
-  .when {
-    grid-area: when;
-    font-family: "Public Sans", system-ui, sans-serif;
-    font-weight: bold;
+      "title logo"
+      "subheading logo"
+      "description description" / 1fr;
   }
 
   .title {
@@ -88,8 +85,14 @@
     font-weight: bold;
   }
 
-  .employer {
-    grid-area: employer;
+  .subheading {
+    grid-area: subheading;
+    display: flex;
+    gap: var(--size-fluid-1);
+  }
+
+  .employer,
+  .when {
     font-size: var(--font-size-0);
     text-transform: uppercase;
   }
