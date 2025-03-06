@@ -16,6 +16,7 @@
   import { Temporal } from "temporal-polyfill";
   import Timeline from "./Timeline.svelte";
   import Role from "./Role.svelte";
+  import "vis-timeline/styles/vis-timeline-graph2d.min.css";
 
   const a11yId = nextA11yId();
 
@@ -26,6 +27,7 @@
   let { jobs }: Props = $props();
 
   let timelineLoaded = $state(false);
+  let selectedEventId: string = $state("2022-sibi");
 
   let jobsInOrder = $derived(
     jobs
@@ -36,6 +38,9 @@
       })
       .toReversed()
   );
+  let currentJobIndex = $derived(
+    jobsInOrder.findIndex((it) => it.id === selectedEventId)
+  );
 
   let events: DataItemCollectionType = $derived(
     jobs.map((job) => ({
@@ -45,7 +50,19 @@
     }))
   );
 
-  let selectedEventId: string = $state("2022-sibi");
+  function previousJob() {
+    const prevJob = jobsInOrder[currentJobIndex + 1];
+    if (prevJob) {
+      selectedEventId = prevJob.id;
+    }
+  }
+
+  function nextJob() {
+    const nextJob = jobsInOrder[currentJobIndex - 1];
+    if (nextJob) {
+      selectedEventId = nextJob.id;
+    }
+  }
 </script>
 
 <div class="layout">
@@ -81,6 +98,12 @@
       </div>
     {/each}
   </div>
+  {#if timelineLoaded}
+    <div class="controls-container">
+      <button class="prev-btn" onclick={previousJob}>Previous</button>
+      <button class="next-btn" onclick={nextJob}>Next</button>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -108,5 +131,30 @@
     display: flex;
     flex-direction: column;
     gap: var(--size-fluid-3);
+  }
+
+  .controls-container {
+    margin-top: var(--size-fluid-2);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .controls-container > button {
+    background: var(--color-bg-darkish);
+    color: var(--color-text-light);
+    border: none;
+    text-transform: uppercase;
+    font-size: var(--font-size-fluid-0);
+    padding: var(--size-1);
+    cursor: pointer;
+    width: var(--size-fluid-7);
+  }
+
+  .prev-btn {
+    text-align: left;
+  }
+
+  .next-btn {
+    text-align: right;
   }
 </style>
