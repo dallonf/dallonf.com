@@ -13,14 +13,14 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@fontsource/public-sans": "^5.1.2",
-    "astro": "^5.3.0",
+    "astro": "^5.4.2",
     "postcss-custom-media": "^11.0.5",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.0.4",
+    "@astrojs/svelte": "^7.0.5",
     "@csstools/postcss-global-data": "^3.0.0",
     "@fontsource/clear-sans": "^5.1.0",
     "@fontsource/dm-sans": "^5.1.1",
@@ -30,7 +30,7 @@
     "minireset.css": "^0.0.7",
     "open-props": "^1.7.12",
     "remark": "^15.0.1",
-    "svelte": "^5.19.9",
+    "svelte": "^5.22.6",
     "temporal-polyfill": "^0.2.5",
     "vis-timeline": "^7.7.3"
   }
