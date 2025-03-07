@@ -1,15 +1,3 @@
-<script lang="ts" module>
-  import { untrack } from "svelte";
-  let prevId = $state(0);
-
-  function nextA11yId() {
-    return untrack(() => {
-      prevId += 1;
-      return prevId;
-    });
-  }
-</script>
-
 <script lang="ts">
   import type { CollectionEntry } from "astro:content";
   import type { DataItemCollectionType } from "vis-timeline";
@@ -18,7 +6,7 @@
   import Role from "./Role.svelte";
   import "vis-timeline/styles/vis-timeline-graph2d.min.css";
 
-  const a11yId = nextA11yId();
+  const a11yId = $props.id();
 
   interface Props {
     jobs: CollectionEntry<"jobs">[];
@@ -72,7 +60,7 @@
       {events}
       bind:selectedEventId
       onLoaded={() => {
-        timelineLoaded = true;
+        // timelineLoaded = true;
       }}
     />
   </div>
