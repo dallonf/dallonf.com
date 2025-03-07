@@ -149,8 +149,8 @@
   }
 
   .controls-container > button {
-    background: var(--color-bg-darkish);
-    color: var(--color-text-light);
+    background: var(--color-bg-tan);
+    color: var(--color-text-dark);
     border: none;
     text-transform: uppercase;
     font-size: var(--font-size-fluid-0);
@@ -172,9 +172,9 @@
       max-inline-size: var(--max-section-width);
       align-self: center;
       display: grid;
-      grid-template-areas: "heading jobs" ". controls" "timeline timeline";
+      grid-template-areas: "heading jobs" "timeline timeline" "controls controls";
       grid-template-columns: 50% 50%;
-      grid-template-rows: auto auto auto 1fr;
+      grid-template-rows: auto auto auto auto 1fr;
     }
 
     h2 {
