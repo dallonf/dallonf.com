@@ -60,7 +60,7 @@
       {events}
       bind:selectedEventId
       onLoaded={() => {
-        // timelineLoaded = true;
+        timelineLoaded = true;
       }}
     />
   </div>

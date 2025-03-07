@@ -67,7 +67,7 @@
   {#if logo}
     <img class="logo" src={logo} width={50} height={50} alt="" />
   {/if}
-  <p>{@render children()}</p>
+  <div class="description">{@render children()}</div>
 </li>
 
 <style>
@@ -102,7 +102,7 @@
     margin-left: var(--size-fluid-1);
   }
 
-  p {
+  .description {
     grid-area: description;
     font-size: var(--font-size-0);
     margin-top: var(--size-fluid-2);
