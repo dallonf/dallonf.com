@@ -3,6 +3,7 @@
 
   import type { Snippet } from "svelte";
   import { type Temporal } from "temporal-polyfill";
+  import RichText from "@components/RichText.svelte";
 
   interface Props {
     start: Temporal.PlainYearMonth;
@@ -67,7 +68,7 @@
   {#if logo}
     <img class="logo" src={logo} width={50} height={50} alt="" />
   {/if}
-  <div class="description">{@render children()}</div>
+  <div class="description"><RichText>{@render children()}</RichText></div>
 </li>
 
 <style>
