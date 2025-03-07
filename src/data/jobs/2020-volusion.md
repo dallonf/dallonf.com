@@ -6,4 +6,6 @@ end: 2022-06
 logo: "./logos/volusion.svg"
 ---
 
-Led incremental refactoring of a complex page to improve performance and testability. Built GitHub Actions workflows to automate key steps of deployment process. Mentored junior developers.
+-	Migrated the data model of a complex page, improving performance and testability, without neglecting older code
+-	Created a micro-frontend framework based on Web Components and React to embed maintainable UIs into legacy pages
+-	Built GitHub Actions to automate key steps of deployment process
