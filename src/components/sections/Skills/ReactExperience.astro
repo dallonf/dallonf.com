@@ -1,5 +1,5 @@
 ---
-import {reactYears} from '@logic/years-experience';
+import { reactYears } from "@logic/years-experience";
 
 const ecosystemOverflow = [
   "MobX",
@@ -33,24 +33,26 @@ function opacity(index: number) {
 
 <h3><span class="exp-highlight">{reactYears()}+</span> years of React</h3>
 <div class="layout">
-  <div class="then-and-now then">
-    <h4>Then...</h4>
+  <h4 class="history-header">Always on the move</h4>
+  <div class="history-explain">
+    <p>
+      Today's React is not the React of {reactYears()} years ago! I have seen dozens
+      of shifts in the ecosystem, and I expect there will be many more.
+    </p>
+    <p>
+      I've learned with experience the right time to make a change, and the
+      right time to stick with what already works.
+    </p>
+  </div>
+  <div class="history-overview">
     <ul>
       <li>Class Components</li>
-      <li>Flux Patterns</li>
-      <li>PropTypes</li>
-      <li>setState()</li>
-      <li>componentWillMount()</li>
-    </ul>
-  </div>
-  <div class="then-and-now and-now">
-    <h4>...and now</h4>
-    <ul>
-      <li>Functional Components</li>
+      <li>Flux / Redux</li>
       <li>Hooks</li>
-      <li>Context</li>
-      <li>useState()</li>
-      <li>useEffect()</li>
+      <li>Create React App</li>
+      <li>Frameworks / Next.js</li>
+      <li>Server Components</li>
+      <li><em>What's next...?</em></li>
     </ul>
   </div>
   <h4 class="ecosystem-header">Ecosystem:</h4>
@@ -89,7 +91,9 @@ function opacity(index: number) {
     max-width: 25rem;
     grid:
       "heading heading heading"
-      ". . ." var(--size-fluid-2) "then . and-now"
+      ". . ." var(--size-fluid-2)
+      "history-header history-header history-header"
+      "history-explain . history-overview"
       ". . ." var(--size-fluid-3)
       "ecosystem-header ecosystem-header ecosystem-header"
       "ecosystem1 . ecosystem2"
@@ -119,17 +123,25 @@ function opacity(index: number) {
     font-size: var(--font-size-0);
   }
 
-  .then {
-    grid-area: then;
-  }
-
-  .and-now {
-    grid-area: and-now;
-  }
-
-  .then-and-now h4 {
-    font-family: var(--accent-font);
+  .history-header {
+    grid-area: history-header;
+    margin-bottom: var(--size-fluid-1);
     font-weight: bold;
+  }
+
+  .history-explain {
+    grid-area: history-explain;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-fluid-1);
+
+    > p {
+      font-size: var(--font-size-0);
+    }
+  }
+
+  .history-overview {
+    grid-area: history-overview;
   }
 
   .ecosystem-header {
