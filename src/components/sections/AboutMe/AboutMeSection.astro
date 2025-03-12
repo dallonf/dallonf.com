@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import SectionContainer from "@components/SectionContainer.astro";
+import RichText from "@components/RichText.svelte";
 import photo from "./photo.jpg";
 import AboutText from "./AboutText.md";
 ---
@@ -16,7 +17,9 @@ import AboutText from "./AboutText.md";
       />
       <h2>About Me</h2>
       <div class="content">
-        <AboutText />
+        <RichText>
+          <AboutText />
+        </RichText>
       </div>
     </div>
   </div>
