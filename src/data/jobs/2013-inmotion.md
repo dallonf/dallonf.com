@@ -3,6 +3,7 @@ name: InMotion Software
 title: Developer
 start: 2013-08
 end: 2014-08
+logo: ./logos/inmotion_software_logo.jpg
 ---
 
 - Provided cross-platform development expertise for a large application in the education space, which had previously been focused on Mac OS X and iPhone development.

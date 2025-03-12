@@ -3,6 +3,7 @@ name: RigUp
 title: Software Engineer
 start: 2019-06
 end: 2020-01
+logo: ./logos/rigup.jpg
 ---
 
 - Implemented a new referrals system and new invoicing options, using React, AngularJS, TypeScript, Jest, and Ruby on Rails.

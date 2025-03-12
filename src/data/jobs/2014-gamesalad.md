@@ -3,6 +3,7 @@ name: GameSalad
 title: Web Developer
 start: 2014-08
 end: 2015-07
+logo: ./logos/gamesalad.png
 ---
 
 -	Designed and developed supporting web experiences for GameSalad users, including a community marketplace, tutorial browser, documentation browser, and site-wide single sign-on. 

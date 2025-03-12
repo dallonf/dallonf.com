@@ -101,6 +101,9 @@
   .logo {
     grid-area: logo;
     margin-left: var(--size-fluid-1);
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
   }
 
   .description {
