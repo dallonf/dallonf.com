@@ -1,11 +1,13 @@
 ---
-import type { ImageMetadata } from 'astro';
+import type { ImageMetadata } from "astro";
 import SectionContainer from "@components/SectionContainer.astro";
 import SkillsList from "@components/SkillsList.astro";
 import { lookupSkillsList } from "@components/skillsListUtils";
 import ReactExperience from "./ReactExperience.astro";
 
-const icons = import.meta.glob<{ default: ImageMetadata }>("./logos/*.{svg,png}");
+const icons = import.meta.glob<{ default: ImageMetadata }>(
+  "./logos/*.{svg,png}"
+);
 
 const toolingIcons = await lookupSkillsList(
   [
@@ -13,6 +15,7 @@ const toolingIcons = await lookupSkillsList(
     ["Webpack", "webpack.png"],
     ["ESLint", "eslint.png"],
     ["GitHub Actions", "github-actions.png"],
+    ["Docker", "docker.svg"],
   ],
   icons
 );
@@ -20,10 +23,10 @@ const toolingIcons = await lookupSkillsList(
 const backendIcons = await lookupSkillsList(
   [
     ["Node.js", "node.png"],
-    ["Fastify", "fastify.png"],
     ["Express", "express.png"],
     ["PostgreSQL", "postgres.svg"],
     ["AWS", "aws.svg"],
+    ["SST", "sst.svg"],
   ],
   icons
 );
@@ -46,7 +49,9 @@ const backendIcons = await lookupSkillsList(
         <h3>Back-End</h3>
         <p>While I specialize in UI development, I can also work full-stack!</p>
         <SkillsList skills={backendIcons} />
-        <p class="more">plus MySQL, Ruby on Rails, PHP, Java, Spring, and more</p>
+        <p class="more">
+          plus MySQL, Ruby on Rails, PHP, Java, Spring, and more
+        </p>
       </div>
     </div>
   </div>
