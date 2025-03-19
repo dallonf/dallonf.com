@@ -6,6 +6,8 @@ end: 2022-06
 logo: "./logos/volusion.svg"
 ---
 
--	Migrated the data model of a complex page, improving performance and testability, without neglecting older code
--	Created a micro-frontend framework based on Web Components and React to embed maintainable UIs into legacy pages
--	Built GitHub Actions to automate key steps of deployment process
+- Drastically improved the performance and testability of a highly interactive page, using a gradual migration strategy.
+-	Created a micro-frontend framework based on Web Components and React for interoperability with legacy pages.
+-	Automated deployment processes with GitHub Actions.
+
+Tools used: React, TypeScript, Vitest, Web Components, GitHub Actions

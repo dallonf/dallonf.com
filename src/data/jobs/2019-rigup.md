@@ -6,7 +6,9 @@ end: 2020-01
 logo: ./logos/rigup.jpg
 ---
 
-- Implemented a new referrals system and new invoicing options, using React, AngularJS, TypeScript, Jest, and Ruby on Rails.
-- Integrated the static website (built on the React-Static site generator) with a headless CMS (Prismic) to enable faster content updates while reducing workload on engineering team.
+- Implemented full-stack features and systems, including a referral system.
+- Added support for a headless CMS (Prismic) to a static website generator, reducing workload on engineering team to update content.
+
+Tools used: React, AngularJS, TypeScript, Jest, Ruby on Rails
 
 _(note: RigUp is now known as Workrise)_
