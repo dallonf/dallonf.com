@@ -3,7 +3,9 @@ import SectionContainer from "@components/SectionContainer.astro";
 import SkillsList from "@components/SkillsList.astro";
 import { lookupSkillsList } from "@components/skillsListUtils";
 
-const icons = import.meta.glob<{ default: ImageMetadata }>("./logos/*.{svg,png}");
+const icons = import.meta.glob<{ default: ImageMetadata }>(
+  "./logos/*.{svg,png}"
+);
 
 const skillsList = await lookupSkillsList(
   [
@@ -19,7 +21,8 @@ const skillsList = await lookupSkillsList(
     ["Kotlin", "kotlin.svg"],
     ["Go", "go.svg"],
     ["C#", "csharp.svg"],
-    ["Lua", "lua.svg"],
+    ["Astro", "astro.svg"],
+    ["OpenAI APIs", "openai.svg"],
   ],
   icons
 );
