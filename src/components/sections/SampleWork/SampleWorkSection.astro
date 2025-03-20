@@ -39,6 +39,7 @@ import SectionContainer from "@components/SectionContainer.astro";
           src={sibiLoginImg}
           height={350}
           alt="A screenshot of a login screen for Sibi."
+          style={{ objectPosition: "top" }}
         />
         <h3>Single Sign On for Sibi</h3>
         <p>
@@ -80,7 +81,9 @@ import SectionContainer from "@components/SectionContainer.astro";
   }
 
   .sample-work-list > li > img {
+    height: var(--size-header-1);
     width: var(--size-header-1);
+    object-fit: cover;
   }
 
   .sample-work-list > li h3 {
