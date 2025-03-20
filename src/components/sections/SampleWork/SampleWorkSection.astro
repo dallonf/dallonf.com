@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import volusionImg from "./volusion.jpg";
 import cmeImg from "./cme.jpg";
-import teamFinderImg from "./teamfinder.jpg";
+import sibiLoginImg from "./sibi-login.png";
 import SectionContainer from "@components/SectionContainer.astro";
 ---
 
@@ -36,18 +36,14 @@ import SectionContainer from "@components/SectionContainer.astro";
       </li>
       <li>
         <Image
-          src={teamFinderImg}
+          src={sibiLoginImg}
           height={350}
-          alt="A screenshot of the GMTK Game Jam 2022 Team Finder."
+          alt="A screenshot of a login screen for Sibi."
         />
-        <h3>GMTK Game Jam Team Finder</h3>
+        <h3>Single Sign On for Sibi</h3>
         <p>
-          Led UI architecture for an open source project with a volunteer team.
-        </p>
-        <p>
-          <a href="https://github.com/GameMakersToolkit/team-finder"
-            >Check out the code!
-          </a>
+          Migrated site-wide authentication to a consistent flow powered by
+          Auth0, in order to enable single sign on across multiple applications.
         </p>
       </li>
     </ul>
