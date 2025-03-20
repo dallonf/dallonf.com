@@ -13,14 +13,14 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@fontsource/public-sans": "^5.1.2",
-    "astro": "^5.4.2",
+    "astro": "^5.5.3",
     "postcss-custom-media": "^11.0.5",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.0.5",
+    "@astrojs/svelte": "^7.0.6",
     "@csstools/postcss-global-data": "^3.0.0",
     "@fontsource/clear-sans": "^5.1.0",
     "@fontsource/dm-sans": "^5.1.1",
