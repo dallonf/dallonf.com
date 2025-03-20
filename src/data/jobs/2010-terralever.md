@@ -6,6 +6,8 @@ end: 2012-01
 logo: ./logos/terralever.jpg
 ---
 
-Developed and maintained numerous projects for various clients using HTML5, CSS, jQuery, and Backbone.js, as well as Ruby, ASP.NET, Java, and PHP on the back end.
+Developed and maintained projects for various clients, from content updates to full Android apps.
+
+Tools used: HTML5, CSS, jQuery, Backbone.js, Ruby, ASP.NET, Java, PHP.
 
 _(Note: Terralever is now known as LaneTerralever)_
