@@ -31,10 +31,12 @@
   );
 
   let events: DataItemCollectionType = $derived(
-    jobs.map((job) => ({
+    jobs.map((job, i) => ({
       id: job.id,
       content: job.data.name,
       start: job.data.start.toString(),
+      // Make sure the last item doesn't get truncated
+      align: i === jobs.length - 1 ? 'right' : undefined
     }))
   );
 
