@@ -10,5 +10,3 @@ logo: ./logos/rigup.jpg
 - Added support for a headless CMS (Prismic) to a static website generator, reducing workload on engineering team to update content.
 
 Tools used: React, AngularJS, TypeScript, Jest, Ruby on Rails
-
-_(note: RigUp is now known as Workrise)_
