@@ -15,7 +15,7 @@
   let { jobs }: Props = $props();
 
   let timelineLoaded = $state(false);
-  let selectedEventId: string = $state("2026-sabbatical");
+  let selectedEventId: string = $state("2022-sibi");
 
   let jobsInOrder = $derived(
     jobs
