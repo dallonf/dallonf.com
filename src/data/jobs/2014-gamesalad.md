@@ -6,7 +6,8 @@ end: 2015-07
 logo: ./logos/gamesalad.png
 ---
 
--	Designed and developed supporting web experiences for GameSalad users, including site-wide single sign-on. 
--	Developed crucial marketing pages, including the Home and Purchase pages, working with artists and the marketing team.
+- Collaborated with design to translate mockups into interactive pages, proposing changes that simplified implementation and strengthened UX consistency.
+- Partnered with the marketing team to implement A/B experiments in Optimizely, building test variants and triggers, monitoring outcomes, and advising on interpretation.
+- Owned greenfield front-end projects end to end, configuring modern build tooling from scratch (using Grunt, Gulp, Babel, and other tools) for task automation, asset bundling, and transpilation.
 
-Tools used: Node.js, Angular, React, Grunt, Gulp, and Babel
+Tools used: Node.js, Angular, React, Grunt, Gulp, Babel

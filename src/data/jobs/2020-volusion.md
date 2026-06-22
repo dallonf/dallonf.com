@@ -6,8 +6,8 @@ end: 2022-06
 logo: "./logos/volusion.svg"
 ---
 
-- Drastically improved the performance and testability of a highly interactive page, using a gradual migration strategy.
--	Created a micro-frontend framework based on Web Components and React for interoperability with legacy pages.
--	Automated deployment processes with GitHub Actions.
+-	Refactored the React-based Page Builder editor to use idiomatic React state and lifecycle management, decomposing monolithic components and explicitly designing testable shared-vs-local state boundaries.
+-	Eliminated full reloads of the iframe-preview on every edit (causing flickering and scroll resets) by moving to atomic, block-level re-rendering, materially improving editor responsiveness.
+-	Architected and implemented a micro-frontend approach that embedded modern React experiences (including the Page Builder) into a legacy classic-ASP platform, packaged as Web Components with Shadow DOM for style and runtime isolation.
 
-Tools used: React, TypeScript, Vitest, Web Components, GitHub Actions
+Tools used: TypeScript, React, Node.js, REST APIs, CSS-in-JS (Aphrodite), Web Components/Shadow DOM
