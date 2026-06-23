@@ -6,30 +6,35 @@ import { lookupSkillsList } from "@components/skillsListUtils";
 import ReactExperience from "./ReactExperience.astro";
 
 const icons = import.meta.glob<{ default: ImageMetadata }>(
-  "./logos/*.{svg,png}"
+  "./logos/*.{svg,png}",
 );
 
 const toolingIcons = await lookupSkillsList(
   [
     ["Vite", "vite.png"],
+    ["Vitest", "vitest.png"],
+    ["Jest", "jest.png"],
     ["Webpack", "webpack.png"],
     ["ESLint", "eslint.png"],
     ["GitHub Actions", "github-actions.png"],
-    ["Docker", "docker.svg"],
+    ["Turborepo", "turborepo.svg"],
   ],
-  icons
+  icons,
 );
 
-const backendIcons = await lookupSkillsList(
+const fullstackIcons = await lookupSkillsList(
   [
+    ["TypeScript", "typescript.svg"],
     ["Node.js", "node.png"],
-    ["Express", "express.png"],
+    ["GraphQL", "graphql.svg"],
     ["PostgreSQL", "postgres.svg"],
-    ["AWS", "aws.svg"],
+    ["Amazon Web Services", "aws.svg"],
     ["SST", "sst.svg"],
   ],
-  icons
+  icons,
 );
+
+const fullstackMore = "plus Ruby on Rails, Java, Spring, and more";
 ---
 
 <SectionContainer id="skills" padding={false}>
@@ -41,17 +46,20 @@ const backendIcons = await lookupSkillsList(
     </div>
     <div class="other-side">
       <div class="other-section">
+        <h3>Full-Stack</h3>
+        <p>
+          I work across the entire stack, taking initiative to deliver complete
+          software solutions.
+        </p>
+        <SkillsList skills={fullstackIcons} />
+        <p class="more">
+          plus {fullstackMore}
+        </p>
+      </div>
+      <div class="other-section">
         <h3>Tooling</h3>
         <p>Good tools and pipelines make the whole team more effective!</p>
         <SkillsList skills={toolingIcons} />
-      </div>
-      <div class="other-section">
-        <h3>Back-End</h3>
-        <p>While I specialize in UI development, I can also work full-stack!</p>
-        <SkillsList skills={backendIcons} />
-        <p class="more">
-          plus MySQL, Ruby on Rails, PHP, Java, Spring, and more
-        </p>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@ import { assert } from "@logic/assert";
 
 export async function lookupSkillsList(
   skills: [string, string][],
-  iconsGlob: Record<string, () => Promise<{ default: ImageMetadata }>>
+  iconsGlob: Record<string, () => Promise<{ default: ImageMetadata }>>,
 ): Promise<
   {
     name: string;
@@ -12,12 +12,12 @@ export async function lookupSkillsList(
   return Promise.all(
     skills.map(async ([name, iconFile]) => {
       const importLogo = iconsGlob[`./logos/${iconFile}`];
-      assert(importLogo);
+      assert(importLogo, `Could not find icon: ${iconFile}`);
       const iconMeta = (await importLogo()).default;
       return {
         name,
         iconUrl: iconMeta.src,
       };
-    })
+    }),
   );
 }
