@@ -4,27 +4,27 @@ import SkillsList from "@components/SkillsList.astro";
 import { lookupSkillsList } from "@components/skillsListUtils";
 
 const icons = import.meta.glob<{ default: ImageMetadata }>(
-  "./logos/*.{svg,png}"
+  "./logos/*.{svg,png}",
 );
 
 const skillsList = await lookupSkillsList(
   [
     ["Svelte", "svelte.svg"],
     ["Vue", "vue.svg"],
+    ["Astro", "astro.svg"],
     ["Python", "python.svg"],
     ["PyTorch", "pytorch.png"],
-    ["Unity", "unity.svg"],
-    ["Godot", "godot.svg"],
+    ["Ollama", "ollama.svg"],
+    ["OpenAI SDK", "openai.svg"],
     ["Tauri", "tauri.svg"],
     ["Electron", "electron.svg"],
     ["Rust", "rust.svg"],
     ["Kotlin", "kotlin.svg"],
-    ["Go", "go.svg"],
     ["C#", "csharp.svg"],
-    ["Astro", "astro.svg"],
-    ["OpenAI APIs", "openai.svg"],
+    ["Unity", "unity.svg"],
+    ["Godot", "godot.svg"],
   ],
-  icons
+  icons,
 );
 ---
 
@@ -32,8 +32,8 @@ const skillsList = await lookupSkillsList(
   <div class="size-constraint">
     <h3>And More...</h3>
     <p class="summary">
-      I also have non-professional experience with other web frameworks, machine
-      learning, game development, and more:
+      In my personal projects, I've worked with many more web frameworks,
+      languages, and in machine learning, game development, and more:
     </p>
     <SkillsList skills={skillsList} />
   </div>
